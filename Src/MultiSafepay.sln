@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSafepay", "MultiSafepay\MultiSafepay.csproj", "{3A798322-F2C6-4D67-8633-21C0B275ECC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSafepay.UnitTests", "..\Tests\MultiSafepay.UnitTests\MultiSafepay.UnitTests.csproj", "{FB0904F5-4B79-4B47-83C6-340764134439}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSafepay.IntegrationTests", "..\Tests\MultiSafepay.IntegrationTests\MultiSafepay.IntegrationTests.csproj", "{903B2E2D-FE60-4500-BCDA-1B54074AC24C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A798322-F2C6-4D67-8633-21C0B275ECC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A798322-F2C6-4D67-8633-21C0B275ECC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A798322-F2C6-4D67-8633-21C0B275ECC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A798322-F2C6-4D67-8633-21C0B275ECC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB0904F5-4B79-4B47-83C6-340764134439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB0904F5-4B79-4B47-83C6-340764134439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB0904F5-4B79-4B47-83C6-340764134439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB0904F5-4B79-4B47-83C6-340764134439}.Release|Any CPU.Build.0 = Release|Any CPU
+		{903B2E2D-FE60-4500-BCDA-1B54074AC24C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{903B2E2D-FE60-4500-BCDA-1B54074AC24C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{903B2E2D-FE60-4500-BCDA-1B54074AC24C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{903B2E2D-FE60-4500-BCDA-1B54074AC24C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A798322-F2C6-4D67-8633-21C0B275ECC7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MultiSafepay</RootNamespace>
+    <AssemblyName>MultiSafepay</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Converter\JsonDateTimeConverter.cs" />
+    <Compile Include="Model\CheckoutOptions.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\CustomField.cs" />
+    <Compile Include="Model\CustomFieldType.cs" />
+    <Compile Include="Model\DeliveryAddress.cs" />
+    <Compile Include="Model\FieldDescription.cs" />
+    <Compile Include="Model\GatewayInfo.cs" />
+    <Compile Include="Model\PaymentOptions.cs" />
+    <Compile Include="Model\Refund.cs" />
+    <Compile Include="Model\RoundingMode.cs" />
+    <Compile Include="Model\RoundingPolicy.cs" />
+    <Compile Include="Model\RoundingRule.cs" />
+    <Compile Include="Model\ShippingMethod.cs" />
+    <Compile Include="Model\ShippingMethods.cs" />
+    <Compile Include="Model\ShippingStatus.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\ShoppingCart.cs" />
+    <Compile Include="Model\ShoppingCartItem.cs" />
+    <Compile Include="Model\StandardCustomField.cs" />
+    <Compile Include="Model\TaxTable.cs" />
+    <Compile Include="Model\TaxTables.cs" />
+    <Compile Include="Model\Weight.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
