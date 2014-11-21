@@ -11,7 +11,7 @@ namespace MultiSafepay.UnitTests.Model
         public void Order_Serialize_PropertyNamesAsExpected()
         {
             // Arrange
-            var order = new Order();
+            var order = new OrderRequest();
 
             // Act
             var serializedObject = JsonConvert.SerializeObject(order);

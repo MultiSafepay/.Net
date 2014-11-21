@@ -1,4 +1,4 @@
-﻿namespace Samples
+﻿namespace MultiSafepay.IntegrationTests.Transactions
 {
     public class RefundATransaction
     {

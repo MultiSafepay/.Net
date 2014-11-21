@@ -39,6 +39,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converter\JsonDateTimeConverter.cs" />
+    <Compile Include="Model\Issuer.cs" />
+    <Compile Include="Model\Gateway.cs" />
     <Compile Include="Model\CheckoutOptions.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\CustomField.cs" />
@@ -46,6 +48,9 @@
     <Compile Include="Model\DeliveryAddress.cs" />
     <Compile Include="Model\FieldDescription.cs" />
     <Compile Include="Model\GatewayInfo.cs" />
+    <Compile Include="Model\OrderResponse.cs" />
+    <Compile Include="Model\OrderStatus.cs" />
+    <Compile Include="Model\PaymentDetails.cs" />
     <Compile Include="Model\PaymentOptions.cs" />
     <Compile Include="Model\Refund.cs" />
     <Compile Include="Model\RoundingMode.cs" />
@@ -54,14 +59,19 @@
     <Compile Include="Model\ShippingMethod.cs" />
     <Compile Include="Model\ShippingMethods.cs" />
     <Compile Include="Model\ShippingStatus.cs" />
-    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderRequest.cs" />
     <Compile Include="Model\ShoppingCart.cs" />
     <Compile Include="Model\ShoppingCartItem.cs" />
     <Compile Include="Model\StandardCustomField.cs" />
     <Compile Include="Model\TaxTable.cs" />
     <Compile Include="Model\TaxTables.cs" />
+    <Compile Include="Model\OrderTransaction.cs" />
     <Compile Include="Model\Weight.cs" />
+    <Compile Include="MultiSafepayClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResponseMessage.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="UrlProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

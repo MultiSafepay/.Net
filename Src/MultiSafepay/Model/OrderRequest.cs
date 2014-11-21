@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace MultiSafepay.Model
 {
-    public class Order
+    public class OrderRequest
     {
         [JsonProperty("type")]
         public string Type { get; set; }
