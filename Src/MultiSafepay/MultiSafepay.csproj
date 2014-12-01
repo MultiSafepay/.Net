@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converter\JsonDateTimeConverter.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Model\OrderResponse.cs" />
     <Compile Include="Model\OrderStatus.cs" />
     <Compile Include="Model\PaymentDetails.cs" />
+    <Compile Include="Model\PaymentFlow.cs" />
     <Compile Include="Model\PaymentOptions.cs" />
     <Compile Include="Model\Refund.cs" />
     <Compile Include="Model\RoundingMode.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Model\OrderTransaction.cs" />
     <Compile Include="Model\Weight.cs" />
     <Compile Include="MultiSafepayClient.cs" />
+    <Compile Include="MultiSafePayException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseMessage.cs" />
     <Compile Include="Transaction.cs" />

@@ -15,10 +15,10 @@ namespace MultiSafepay.IntegrationTests.Gateways
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var gateway = client.GetGateway("PayPal");
+            var gateway = client.GetGateway("Visa");
 
             // Assert
-            Assert.AreEqual("PayPal", gateway.Id);
+            Assert.AreEqual("VISA", gateway.Id);
         }
     }
 }

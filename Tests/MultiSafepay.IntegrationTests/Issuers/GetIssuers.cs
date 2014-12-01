@@ -1,8 +1,7 @@
 ﻿using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MultiSafepay;
 
-namespace Samples
+namespace MultiSafepay.IntegrationTests.Issuers
 {
     [TestClass]
     public class GetIssuers

@@ -47,5 +47,10 @@ namespace MultiSafepay
         {
             return _baseUrl + "orders/" + orderId + "/paymentlink";
         }
+
+        public string OrdersUrl()
+        {
+            return _baseUrl + "orders";
+        }
     }
 }
