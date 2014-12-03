@@ -5,8 +5,8 @@ namespace MultiSafepay.Model
 {
     public class OrderStatus
     {
-        [JsonProperty("id")]
-        public int Id { get; set; }
+        [JsonProperty("order_id")]
+        public string OrderId { get; set; }
         [JsonProperty("status")]
         public string Status { get; set; }
         [JsonProperty("created")]

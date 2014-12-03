@@ -5,25 +5,24 @@ using Newtonsoft.Json;
 
 namespace MultiSafepay.UnitTests.Model
 {
- 
     [TestClass]
     [ExcludeFromCodeCoverage]
-    public class FieldDescriptionTests
+    public class PaymentLinkTests
     {
         [TestMethod]
-        public void FieldDescription_Serialize_PropertyNamesAsExpected()
+        public void PaymentLink_Serialize_PropertyNamesAsExpected()
         {
             // Arrange
-            var fieldDescription = new FieldDescription();
+            var paymentLink = new PaymentLink();
 
             // Act
-            var serializedObject = JsonConvert.SerializeObject(fieldDescription);
+            var serializedObject = JsonConvert.SerializeObject(paymentLink);
 
             // Assert
             Assert.AreEqual(@"{
-				""value"": null,
-				""style"": null
-			}".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
+                ""order_id"":null,
+                ""payment_url"":null
+                }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }
 }

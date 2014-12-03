@@ -17,5 +17,7 @@ namespace MultiSafepay
         public string TransactionStatus { get; set; }
         [JsonProperty("order_status")]
         public string OrderStatus { get; set; }
+        [JsonProperty("amount")]
+        public int Amount { get; set; }
     }
 }

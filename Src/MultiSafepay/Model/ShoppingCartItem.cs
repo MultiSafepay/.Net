@@ -4,6 +4,13 @@ namespace MultiSafepay.Model
 {
     public class ShoppingCartItem
     {
+        public ShoppingCartItem(string name, int unitPrice, int quantity)
+        {
+            Name = name;
+            UnitPrice = unitPrice;
+            Quantity = quantity;
+        }
+
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("description")]

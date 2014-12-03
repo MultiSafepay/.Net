@@ -54,6 +54,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Extensions.cs" />
+    <Compile Include="Model\OrderResponseTests.cs" />
+    <Compile Include="Model\PaymentDetailsTests.cs" />
+    <Compile Include="Model\PaymentLinkTests.cs" />
+    <Compile Include="Model\UpdateOrderTests.cs" />
     <Compile Include="Model\ShoppingCartItemTests.cs" />
     <Compile Include="Model\ShoppingCartTests.cs" />
     <Compile Include="Model\CheckoutOptionsTests.cs" />

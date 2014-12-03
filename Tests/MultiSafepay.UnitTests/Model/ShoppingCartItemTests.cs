@@ -1,17 +1,19 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MultiSafepay.Model;
 using Newtonsoft.Json;
 
 namespace MultiSafepay.UnitTests.Model
 {
     [TestClass]
+    [ExcludeFromCodeCoverage]
     public class ShoppingCartItemTests
     {
         [TestMethod]
         public void ShoppingCartItem_Serialize_PropertyNamesAsExpected()
         {
             // Arrange
-            var shoppingCartItem = new ShoppingCartItem();
+            var shoppingCartItem = new ShoppingCartItem(null, 0, 0);
 
             // Act
             var serializedObject = JsonConvert.SerializeObject(shoppingCartItem);

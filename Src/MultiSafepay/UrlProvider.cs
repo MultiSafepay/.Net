@@ -52,5 +52,10 @@ namespace MultiSafepay
         {
             return _baseUrl + "orders";
         }
+
+        public string OrderRefundsUrl(string orderId)
+        {
+            return _baseUrl + "orders/" + orderId + "/refunds";
+        }
     }
 }

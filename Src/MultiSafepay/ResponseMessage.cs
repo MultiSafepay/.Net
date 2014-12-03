@@ -5,7 +5,7 @@ namespace MultiSafepay
     public class ResponseMessage
     {
         [JsonProperty("success")]
-        public string Success { get; set; }
+        public bool Success { get; set; }
         [JsonProperty("error_code")]
         public int ErrorCode { get; set; }
         [JsonProperty("error_info")]

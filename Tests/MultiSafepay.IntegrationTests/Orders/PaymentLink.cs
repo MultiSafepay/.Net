@@ -1,13 +1,14 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MultiSafepay.IntegrationTests.Orders
 {
     [TestClass]
-    public class RetrieveAnOrder
+    public class PaymentLink
     {
         [TestMethod]
-        public void Orders_RetrieveOrder()
+        public void Orders_RetrievePaymentLink()
         {
             // Arrange
             var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
@@ -15,16 +16,16 @@ namespace MultiSafepay.IntegrationTests.Orders
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            const string orderId = "2145124t";
-            var result = client.GetOrder(orderId);
+            var result = client.GetPaymentLink("e716768b-ea49-44ac-b4df-9a293c0fe6c0");
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(orderId, result.OrderStatus.OrderId);
+            Assert.IsFalse(String.IsNullOrEmpty(result.PaymentUrl));
         }
 
+
         [TestMethod]
-        public void Orders_RetriveOrder_OrderNotFound()
+        public void Orders_RetrivePaymentLink_NotFoundReturnsNull()
         {
             // Arrange
             var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
@@ -32,8 +33,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            const string orderId = "order id that doesn't exist";
-            var result = client.GetOrder(orderId);
+            var result = client.GetPaymentLink(" order id that doesn't exist ");
 
             // Assert
             Assert.IsNull(result);

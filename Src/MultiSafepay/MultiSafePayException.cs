@@ -2,6 +2,7 @@
 
 namespace MultiSafepay
 {
+    [Serializable]
     internal class MultiSafepayException : Exception
     {
         public int ErrorCode { get; private set; }
@@ -10,10 +11,16 @@ namespace MultiSafepay
 
 
         public MultiSafepayException(int errorCode, string errorInfo, Exception baseException)
+            : this (errorCode, errorInfo)
+        {
+            
+            BaseException = baseException;
+        }
+
+        public MultiSafepayException(int errorCode, string errorInfo)
         {
             ErrorCode = errorCode;
             ErrorInfo = errorInfo;
-            BaseException = baseException;
         }
     }
 }
