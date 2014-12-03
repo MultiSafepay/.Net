@@ -17,8 +17,10 @@ namespace MultiSafepay.Model
 
         [JsonProperty("type"), JsonConverter(typeof(StringEnumConverter))]
         internal PaymentFlow PaymentFlow { get; private set; }
-        [JsonProperty("id")]
+        [JsonProperty("order_id")]
         public string OrderId { get; set; }
+        [JsonProperty("recurring_id")]
+        public string RecurringId { get; set; }
         [JsonProperty("currency")]
         public string CurrencyCode { get; set; }
         [JsonProperty("amount")]
@@ -119,6 +121,21 @@ namespace MultiSafepay.Model
                 ShoppingCart = shoppingCart,
                 CheckoutOptions = checkoutOptions
             };
+        }
+
+        public static OrderRequest CreateRecurring(string recurringId, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
+        {
+            return new OrderRequest(
+                PaymentFlow.Direct,
+                orderId,
+                description,
+                amountInCents,
+                currencyCode,
+                paymentOptions)
+            {
+                RecurringId = recurringId
+            };
+
         }
     }
 }
