@@ -19,24 +19,25 @@ namespace MultiSafepay.IntegrationTests.Orders
 
             var orderRequest = OrderRequest.CreateFastCheckoutOrder(orderId, "product description", 1000, "EUR",
                 new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"),
-                GatewayInfo.PayAfterDelivery(new DateTime(1986, 08, 31), "test account", "test phone", "email@email.com", "referrer", "useragent"),
-                new Customer()
+                new ShoppingCart
                 {
-                    FirstName = "John",
-                    LastName = "Doe",
-                    Address1 = "Kraanspoor 39",
-                    City = "Amsterdam",
-                    Country = "NL",
-                    
-                    ZipCode = "1033SC"
-                },
-                    new ShoppingCart()
+                    Items = new[]
                     {
-                        Items = new ShoppingCartItem[]
+                        new ShoppingCartItem("Test Product", 10, 2),
+                        new ShoppingCartItem("Test Product 2", 10, 2)
+                    }
+                },
+                new CheckoutOptions()
+                {
+                    ShippingMethods = new ShippingMethods()
+                    {
+                        FlatRateShippingMethods = new []
                         {
-                            new ShoppingCartItem("Test Product", 1000, 2)
+                            new ShippingMethod("shipping method 1", 10, "EUR"),
+                            new ShippingMethod("shipping method 2", 10, "EUR")
                         }
                     }
+                }
                 );
 
             // Act
@@ -46,7 +47,6 @@ namespace MultiSafepay.IntegrationTests.Orders
             Assert.IsNotNull(result);
             Assert.AreEqual(orderRequest.OrderId, result.OrderId);
             Assert.IsFalse(String.IsNullOrEmpty(result.PaymentUrl));
-
         }
 
     }

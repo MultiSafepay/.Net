@@ -2,11 +2,13 @@
 
 namespace MultiSafepay.Model
 {
-    public enum PaymentFlow
+    internal enum PaymentFlow
     {
         [EnumMember(Value = "direct")]
         Direct,
         [EnumMember(Value = "redirect")]
-        Redirect
+        Redirect,
+        [EnumMember(Value = "checkout")]
+        FastCheckout
     }
 }

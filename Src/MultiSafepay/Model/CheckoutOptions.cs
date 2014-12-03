@@ -11,5 +11,7 @@ namespace MultiSafepay.Model
         public ShippingMethods ShippingMethods { get; set; }
         [JsonProperty("rounding_policy")]
         public RoundingPolicy RoundingPolicy { get; set; }
+        [JsonProperty("no_shipping_method")]
+        public bool NoShippingMethod { get; set; }
     }
 }

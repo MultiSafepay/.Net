@@ -16,14 +16,12 @@ namespace MultiSafepay.IntegrationTests.Transactions
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            string transactionId = "2242232";
+            const string transactionId = "2242232";
             var result = client.GetTransaction(transactionId);
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(transactionId, result.Id);
-            Assert.Fail();
-            // <TODO> need to check that all data is being deserialized after message format change
+            Assert.AreEqual(transactionId, result.TransactionId);
         }
 
         [TestMethod]

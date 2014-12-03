@@ -6,6 +6,8 @@ namespace MultiSafepay.Model
     {
         [JsonProperty("type")]
         public string Type { get; set; }
+        [JsonProperty("recurring_id")]
+        public string RecurringId { get; set; }
         [JsonProperty("account_id")]
         public string AccountId { get; set; }
         [JsonProperty("account_holder_name")]

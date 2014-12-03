@@ -16,7 +16,7 @@ namespace MultiSafepay.Model
         }
 
         [JsonProperty("type"), JsonConverter(typeof(StringEnumConverter))]
-        public PaymentFlow PaymentFlow { get; private set; }
+        internal PaymentFlow PaymentFlow { get; private set; }
         [JsonProperty("id")]
         public string OrderId { get; set; }
         [JsonProperty("currency")]
@@ -47,6 +47,8 @@ namespace MultiSafepay.Model
         public Customer Customer { get; set; }
         [JsonProperty("shopping_cart")]
         public ShoppingCart ShoppingCart { get; set; }
+        [JsonProperty("checkout_options")]
+        public CheckoutOptions CheckoutOptions { get; set; }
 
         public static OrderRequest CreateDirectIdeal(string issuerId, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
         {
@@ -74,7 +76,7 @@ namespace MultiSafepay.Model
                 paymentOptions);
         }
 
-        public static OrderRequest CreatePayAfterDeliveryOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, Customer customer, ShoppingCart shoppingCart)
+        public static OrderRequest CreatePayAfterDeliveryOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, Customer customer)
         {
             return new OrderRequest(
                 PaymentFlow.Direct,
@@ -86,8 +88,7 @@ namespace MultiSafepay.Model
             {
                 GatewayId = "PAYAFTER",
                 GatewayInfo = gatewayInfo,
-                Customer = customer,
-                ShoppingCart = shoppingCart
+                Customer = customer
             };
         }
 
@@ -101,24 +102,22 @@ namespace MultiSafepay.Model
                 currencyCode,
                 paymentOptions)
             {
-                GatewayId = "DirectDebit"
+                GatewayId = "BANKTRANST"
             };
         }
 
-        public static OrderRequest CreateFastCheckoutOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, Customer customer, ShoppingCart shoppingCart)
+        public static OrderRequest CreateFastCheckoutOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, ShoppingCart shoppingCart, CheckoutOptions checkoutOptions)
         {
             return new OrderRequest(
-                PaymentFlow.Direct,
+                PaymentFlow.FastCheckout,
                 orderId,
                 description,
                 amountInCents,
                 currencyCode,
                 paymentOptions)
             {
-                GatewayId = "",
-                GatewayInfo = gatewayInfo,
-                Customer = customer,
-                ShoppingCart = shoppingCart
+                ShoppingCart = shoppingCart,
+                CheckoutOptions = checkoutOptions
             };
         }
     }

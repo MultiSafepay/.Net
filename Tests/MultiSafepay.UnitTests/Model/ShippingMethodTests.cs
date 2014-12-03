@@ -14,7 +14,7 @@ namespace MultiSafepay.UnitTests.Model
         public void ShippingMethod_Serialize_PropertyNamesAsExpected()
         {
             // Arrange
-            var shippingMethod = new ShippingMethod();
+            var shippingMethod = new ShippingMethod(null, 0, null);
 
             // Act
             var serializedObject = JsonConvert.SerializeObject(shippingMethod);

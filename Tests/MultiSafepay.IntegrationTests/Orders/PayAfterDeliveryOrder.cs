@@ -29,13 +29,6 @@ namespace MultiSafepay.IntegrationTests.Orders
                         City = "Amsterdam",
                         Country = "NL",
                         ZipCode = "1033SC"
-                    },
-                    new ShoppingCart()
-                    {
-                        Items = new ShoppingCartItem[]
-                        {
-                            new ShoppingCartItem("Test Product", 1000, 2)
-                        }
                     }
                 );
 
@@ -54,16 +47,14 @@ namespace MultiSafepay.IntegrationTests.Orders
         {
             // Arrange
             var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = "890d637d2875cc063225ba7fb67732e8b9860b1b"; //ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var result = client.UpdateOrderShippedStatus("1415888074", "tracktracecode", "carrier", DateTime.Now, "additional notes");
+            var result = client.UpdateOrderShippedStatus("76b6309e-2ebe-4500-b043-f2bc89ba6d3a", "tracktracecode", "carrier", DateTime.Now);
 
             // Assert
             Assert.IsTrue(result.Success);
-            Assert.Fail();
-            // <TODO> wait until bug is fixed where order status is updated
         }
     }
 }

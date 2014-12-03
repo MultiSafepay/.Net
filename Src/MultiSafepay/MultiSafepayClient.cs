@@ -92,15 +92,14 @@ namespace MultiSafepay
             return response.Data;
         }
 
-        public SimpleResult UpdateOrderShippedStatus(string orderId, string trackingCode, string carrier, DateTime shippedDate, string additionalNotes)
+        public SimpleResult UpdateOrderShippedStatus(string orderId, string trackingCode, string carrier, DateTime shippedDate)
         {
             var response = DoRequest<object>(_urlProvider.OrderUrl(orderId),
                new UpdateOrder()
                {
                    TrackingCode = trackingCode,
                    Carrier = carrier,
-                   ShippingDate = shippedDate,
-                   //Note = additionalNotes
+                   ShippingDate = shippedDate
                }, "PATCH");
             return new SimpleResult() { Success = response.Success };
         }

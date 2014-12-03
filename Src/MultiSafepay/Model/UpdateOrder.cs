@@ -21,7 +21,5 @@ namespace MultiSafepay.Model
         public string Carrier { get; set; }
         [JsonProperty("ship_date", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public DateTime ShippingDate { get; set; }
-        //[JsonProperty("note")]
-        //public string Note { get; set; }
     }
 }

@@ -67,7 +67,6 @@
     <Compile Include="Model\StandardCustomField.cs" />
     <Compile Include="Model\TaxTable.cs" />
     <Compile Include="Model\TaxTables.cs" />
-    <Compile Include="Model\OrderTransaction.cs" />
     <Compile Include="Model\Weight.cs" />
     <Compile Include="MultiSafepayClient.cs" />
     <Compile Include="MultiSafePayException.cs" />

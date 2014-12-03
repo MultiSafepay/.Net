@@ -149,6 +149,7 @@ namespace MultiSafepay.UnitTests
         }
     }
 
+    [ExcludeFromCodeCoverage]
     public static class StringExtension
     {
         public static string TrimTrailingSlash(this string input)
