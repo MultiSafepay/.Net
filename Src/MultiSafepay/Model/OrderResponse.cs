@@ -27,8 +27,6 @@ namespace MultiSafepay.Model
         public string Var3 { get; set; }
         [JsonProperty("items")]
         public string Items { get; set; }
-        [JsonProperty("ewallet")]
-        public OrderStatus OrderStatus { get; set; }
         [JsonProperty("customer")]
         public Customer Customer { get; set; }
         [JsonProperty("customer_delivery")]

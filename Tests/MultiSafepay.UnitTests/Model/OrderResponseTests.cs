@@ -21,12 +21,21 @@ namespace MultiSafepay.UnitTests.Model
 
             // Assert
             Assert.AreEqual(@"{
-                ""ewallet"":null,
-                ""customer"":null,
-                ""customer_delivery"":null,
-                ""transaction"":null,
-                ""payment_details"":null
-                }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
+            ""transaction_id"":null,
+            ""created"":null,
+            ""id"":null,
+            ""currency"":null,
+            ""amount"":0,
+            ""gateway"":0,
+            ""description"":null,
+            ""var1"":null,
+            ""var2"":null,
+            ""var3"":null,
+            ""items"":null,
+            ""customer"":null,
+            ""customer_delivery"":null,
+            ""payment_details"":null
+            }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }
 }

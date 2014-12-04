@@ -50,9 +50,8 @@
     <Compile Include="Model\FieldDescription.cs" />
     <Compile Include="Model\GatewayInfo.cs" />
     <Compile Include="Model\OrderResponse.cs" />
-    <Compile Include="Model\OrderStatus.cs" />
     <Compile Include="Model\PaymentDetails.cs" />
-    <Compile Include="Model\PaymentFlow.cs" />
+    <Compile Include="Model\OrderType.cs" />
     <Compile Include="Model\PaymentOptions.cs" />
     <Compile Include="Model\Refund.cs" />
     <Compile Include="Model\RoundingMode.cs" />

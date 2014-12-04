@@ -17,9 +17,17 @@ namespace MultiSafepay.IntegrationTests.Orders
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
-            var orderRequest = OrderRequest.CreatePayAfterDeliveryOrder(orderId, "product description", 1000, "EUR",
+            var orderRequest = OrderRequest.CreateDirectPayAfterDeliveryOrder(orderId, "product description", 1000, "EUR",
                 new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"),
                 GatewayInfo.PayAfterDelivery(new DateTime(1986, 08, 31), "NL39 RABO 0300 0652 64", "+31 (0)20 8500 500", "test@multisafepay.com", "referrer", "useragent"),
+                new ShoppingCart
+                {
+                    Items = new[]
+                    {
+                        new ShoppingCartItem("Test Product", 10, 2),
+                        new ShoppingCartItem("Test Product 2", 10, 2)
+                    }
+                },
                 new Customer()
                     {
                         FirstName = "John",

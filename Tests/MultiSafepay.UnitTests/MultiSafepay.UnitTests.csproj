@@ -69,7 +69,7 @@
     <Compile Include="Model\FieldDescriptionTests.cs" />
     <Compile Include="Model\CustomFieldTests.cs" />
     <Compile Include="Model\WeightTests.cs" />
-    <Compile Include="Model\OrderTests.cs" />
+    <Compile Include="Model\OrderRequestTests.cs" />
     <Compile Include="Model\RefundTests.cs" />
     <Compile Include="Model\ShippingStatusTests.cs" />
     <Compile Include="Model\DeliveryAddressTests.cs" />

@@ -20,7 +20,7 @@ namespace MultiSafepay.IntegrationTests.Orders
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(orderId, result.OrderStatus.OrderId);
+            Assert.AreEqual(orderId, result.OrderId);
         }
 
         [TestMethod]

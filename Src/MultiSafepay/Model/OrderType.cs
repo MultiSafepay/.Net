@@ -2,7 +2,7 @@
 
 namespace MultiSafepay.Model
 {
-    internal enum PaymentFlow
+    internal enum OrderType
     {
         [EnumMember(Value = "direct")]
         Direct,

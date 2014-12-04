@@ -21,6 +21,7 @@ namespace MultiSafepay.UnitTests.Model
             // Assert
             Assert.AreEqual(@"{
                 ""type"":null,
+                ""recurring_id"": null,
                 ""account_id"":null,
                 ""account_holder_name"":null,
                 ""external_transaction_id"":null

@@ -33,7 +33,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var result = client.GetPaymentLink(" order id that doesn't exist ");
+            var result = client.GetPaymentLink("orderthatdoesnotexist");
 
             // Assert
             Assert.IsNull(result);

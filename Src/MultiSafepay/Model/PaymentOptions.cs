@@ -9,12 +9,12 @@ namespace MultiSafepay.Model
             CloseWindow = true;
         }
 
-        public PaymentOptions(string notificationUrl, string successSuccessRedirectUrl, string cancelRedirectRedirectUrl)
+        public PaymentOptions(string notificationUrl, string successRedirectUrl, string cancelRedirectUrl)
             :this()
         {
             NotificationUrl = notificationUrl;
-            SuccessRedirectUrl = successSuccessRedirectUrl;
-            CancelRedirectUrl = cancelRedirectRedirectUrl;
+            SuccessRedirectUrl = successRedirectUrl;
+            CancelRedirectUrl = cancelRedirectUrl;
         }
 
         [JsonProperty("notification_url")]

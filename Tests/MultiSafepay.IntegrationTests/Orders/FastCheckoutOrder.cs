@@ -39,7 +39,6 @@ namespace MultiSafepay.IntegrationTests.Orders
                     }
                 }
                 );
-
             // Act
             var result = client.CreateOrder(orderRequest);
 

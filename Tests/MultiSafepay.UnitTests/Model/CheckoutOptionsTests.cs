@@ -22,7 +22,8 @@ namespace MultiSafepay.UnitTests.Model
             Assert.AreEqual(@"{
 				""tax_tables"": null,
 				""shipping_methods"": null,
-				""rounding_policy"": null
+				""rounding_policy"": null,
+                ""no_shipping_method"": false
 			}".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }

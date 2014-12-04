@@ -5,9 +5,9 @@ namespace MultiSafepay.Model
 {
     public class OrderRequest
     {
-        private OrderRequest(PaymentFlow paymentFlow, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
+        private OrderRequest(OrderType type, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
         {
-            PaymentFlow = paymentFlow;
+            Type = type;
             OrderId = orderId;
             Description = description;
             AmountInCents = amountInCents;
@@ -16,7 +16,7 @@ namespace MultiSafepay.Model
         }
 
         [JsonProperty("type"), JsonConverter(typeof(StringEnumConverter))]
-        internal PaymentFlow PaymentFlow { get; private set; }
+        internal OrderType Type { get; private set; }
         [JsonProperty("order_id")]
         public string OrderId { get; set; }
         [JsonProperty("recurring_id")]
@@ -55,7 +55,7 @@ namespace MultiSafepay.Model
         public static OrderRequest CreateDirectIdeal(string issuerId, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
         {
             return new OrderRequest(
-                PaymentFlow.Direct,
+                OrderType.Direct,
                 orderId,
                 description,
                 amountInCents,
@@ -70,7 +70,7 @@ namespace MultiSafepay.Model
         public static OrderRequest CreateRedirect(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
         {
             return new OrderRequest(
-                PaymentFlow.Redirect,
+                OrderType.Redirect,
                 orderId,
                 description,
                 amountInCents,
@@ -78,10 +78,10 @@ namespace MultiSafepay.Model
                 paymentOptions);
         }
 
-        public static OrderRequest CreatePayAfterDeliveryOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, Customer customer)
+        public static OrderRequest CreateDirectPayAfterDeliveryOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, ShoppingCart shoppingCart, Customer customer)
         {
             return new OrderRequest(
-                PaymentFlow.Direct,
+                OrderType.Direct,
                 orderId,
                 description,
                 amountInCents,
@@ -90,6 +90,24 @@ namespace MultiSafepay.Model
             {
                 GatewayId = "PAYAFTER",
                 GatewayInfo = gatewayInfo,
+                ShoppingCart = shoppingCart,
+                Customer = customer
+            };
+        }
+
+        public static OrderRequest CreateRedirectPayAfterDeliveryOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, ShoppingCart shoppingCart, Customer customer)
+        {
+            return new OrderRequest(
+                OrderType.Redirect,
+                orderId,
+                description,
+                amountInCents,
+                currencyCode,
+                paymentOptions)
+            {
+                GatewayId = "PAYAFTER",
+                GatewayInfo = gatewayInfo,
+                ShoppingCart = shoppingCart,
                 Customer = customer
             };
         }
@@ -97,21 +115,21 @@ namespace MultiSafepay.Model
         public static OrderRequest CreateDirectBankTransfer(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
         {
             return new OrderRequest(
-                PaymentFlow.Direct,
+                OrderType.Direct,
                 orderId,
                 description,
                 amountInCents,
                 currencyCode,
                 paymentOptions)
             {
-                GatewayId = "BANKTRANST"
+                GatewayId = "BANKTRANS"
             };
         }
 
         public static OrderRequest CreateFastCheckoutOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, ShoppingCart shoppingCart, CheckoutOptions checkoutOptions)
         {
             return new OrderRequest(
-                PaymentFlow.FastCheckout,
+                OrderType.FastCheckout,
                 orderId,
                 description,
                 amountInCents,
@@ -126,7 +144,7 @@ namespace MultiSafepay.Model
         public static OrderRequest CreateRecurring(string recurringId, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
         {
             return new OrderRequest(
-                PaymentFlow.Direct,
+                OrderType.Direct,
                 orderId,
                 description,
                 amountInCents,
