@@ -2,11 +2,14 @@
 
 namespace MultiSafepay.Converter
 {
+    /// <summary>
+    /// The MultiSafepay API requires dates to be submitted in a particular format
+    /// </summary>
     public class JsonDateTimeConverter : IsoDateTimeConverter
     {
         public JsonDateTimeConverter()
         {
-            base.DateTimeFormat = "yyyy-MM-dd";
+            DateTimeFormat = "yyyy-MM-dd";
         }
     }
 }

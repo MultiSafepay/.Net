@@ -1,8 +1,7 @@
 ﻿using System;
-using MultiSafepay.Model;
 using Newtonsoft.Json;
 
-namespace MultiSafepay
+namespace MultiSafepay.Model
 {
     public class Transaction
     {

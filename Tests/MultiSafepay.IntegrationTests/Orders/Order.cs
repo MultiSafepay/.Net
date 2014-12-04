@@ -48,7 +48,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var result = client.SetOrderInvoiceId("4f5b7db0-189a-4767-9a80-2c2fac455743", "testinvoiceid47843979438276493287");
+            var result = client.SetOrderInvoiceNumber("4f5b7db0-189a-4767-9a80-2c2fac455743", "testinvoiceid47843979438276493287");
 
             // Assert
             Assert.IsTrue(result.Success);

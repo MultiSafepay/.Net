@@ -2,6 +2,9 @@
 
 namespace MultiSafepay
 {
+    /// <summary>
+    /// Generates urls for the different operations available on the MultiSafepay API
+    /// </summary>
     internal class UrlProvider
     {
         private readonly string _baseUrl;

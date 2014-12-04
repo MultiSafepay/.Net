@@ -2,6 +2,10 @@
 
 namespace MultiSafepay
 {
+    /// <summary>
+    /// A MultiSafepay exception is used to represent an error code returned from the 
+    /// MultiSafepay API. The original exception can be found as the BaseException.
+    /// </summary>
     [Serializable]
     internal class MultiSafepayException : Exception
     {

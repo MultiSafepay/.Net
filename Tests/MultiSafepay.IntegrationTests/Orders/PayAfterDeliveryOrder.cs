@@ -59,7 +59,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var result = client.UpdateOrderShippedStatus("76b6309e-2ebe-4500-b043-f2bc89ba6d3a", "tracktracecode", "carrier", DateTime.Now);
+            var result = client.UpdateOrderShippedStatus("546dd9aeb49aa", "tracktracecode", "carrier", DateTime.Now);
 
             // Assert
             Assert.IsTrue(result.Success);

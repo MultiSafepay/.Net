@@ -74,7 +74,7 @@
     <Compile Include="Model\RefundResult.cs" />
     <Compile Include="ResponseMessage.cs" />
     <Compile Include="Model\SimpleResult.cs" />
-    <Compile Include="Transaction.cs" />
+    <Compile Include="Model\Transaction.cs" />
     <Compile Include="Model\UpdateOrder.cs" />
     <Compile Include="UrlProvider.cs" />
   </ItemGroup>

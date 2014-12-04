@@ -33,7 +33,7 @@ namespace MultiSafepay.IntegrationTests.Transactions
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var result = client.CreateRefund("4f5b7db0-189a-4767-9a80-2c2fac455743", 500, "EUR", "This is a refund");
+            var result = client.CreateRefund("546dd9aeb49aa", 100, "EUR", "This is a refund");
 
             // Assert
             Assert.IsNotNull(result);

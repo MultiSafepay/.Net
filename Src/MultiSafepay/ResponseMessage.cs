@@ -2,6 +2,9 @@
 
 namespace MultiSafepay
 {
+    /// <summary>
+    /// Message wrapper for responses from the MultiSafepay API that do not contain any additional data.
+    /// </summary>
     public class ResponseMessage
     {
         [JsonProperty("success")]
@@ -12,6 +15,10 @@ namespace MultiSafepay
         public string ErrorInfo { get; set; }
     }
 
+    /// <summary>
+    /// Message wrapper for responses from the MultiSafepay API that also included typed data.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class ResponseMessage<T> : ResponseMessage
     {
         [JsonProperty("data")]
