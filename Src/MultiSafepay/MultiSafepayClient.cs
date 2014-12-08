@@ -19,12 +19,12 @@ namespace MultiSafepay
         private readonly UrlProvider _urlProvider;
         private bool _disposed;
 
-        public MultiSafepayClient(string apiKey, string apiApiUrl = "https://pay.multisafepay.com/v1/json/")
+        public MultiSafepayClient(string apiKey, string apiUrl = "https://pay.multisafepay.com/v1/json/")
         {
             _client = new WebClient();
             _client.Headers["api_key"] = apiKey;
 
-            _urlProvider = new UrlProvider(apiApiUrl);
+            _urlProvider = new UrlProvider(apiUrl);
         }
 
         #region API Methods
