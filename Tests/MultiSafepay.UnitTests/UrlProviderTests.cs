@@ -15,7 +15,7 @@ namespace MultiSafepay.UnitTests
         private readonly string[] _baseUrls = { "https://api.multisafepay.com/", "https://api.multisafepay.com" };
 
         [TestMethod]
-        public void GatewaysUrl()
+        public void GatewaysUrl_Default()
         {
             foreach (var baseUrl in _baseUrls)
             {
@@ -27,6 +27,21 @@ namespace MultiSafepay.UnitTests
 
                 // Assert
                 Assert.AreEqual(String.Format("{0}/gateways", baseUrl.TrimTrailingSlash()), url);
+            }
+        }
+        [TestMethod]
+        public void GatewaysUrl_WithFilters()
+        {
+            foreach (var baseUrl in _baseUrls)
+            {
+                // Arrange
+                var provider = new UrlProvider(baseUrl);
+
+                // Act
+                var url = provider.GatewaysUrl("NL", "EUR", 100);
+
+                // Assert
+                Assert.AreEqual(String.Format("{0}/gateways?country=NL&currency=EUR&amount=100", baseUrl.TrimTrailingSlash()), url);
             }
         }
 

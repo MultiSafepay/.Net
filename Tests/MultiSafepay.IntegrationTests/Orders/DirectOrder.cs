@@ -46,7 +46,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(orderRequest.OrderId, result.OrderId);
-            Assert.IsFalse(String.IsNullOrEmpty(result.PaymentUrl));
+            Assert.IsTrue(String.IsNullOrEmpty(result.PaymentUrl));
         }
 
         [TestMethod]

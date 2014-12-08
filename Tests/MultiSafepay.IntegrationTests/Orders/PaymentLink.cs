@@ -16,7 +16,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var result = client.GetPaymentLink("e716768b-ea49-44ac-b4df-9a293c0fe6c0");
+            var result = client.GetPaymentLink("5feea366-f8f9-453b-9fdb-03ec49ba5f98");
 
             // Assert
             Assert.IsNotNull(result);

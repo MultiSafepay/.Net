@@ -9,7 +9,7 @@ namespace MultiSafepay.Model
         public string TransactionId { get; set; }
         [JsonProperty("created")]
         public DateTime? CreatedDate { get; set; }
-        [JsonProperty("id")]
+        [JsonProperty("order_id")]
         public string OrderId { get; set; }
         [JsonProperty("currency")]
         public string CurrencyCode { get; set; }

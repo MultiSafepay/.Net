@@ -32,9 +32,9 @@ namespace MultiSafepay
         /// <summary>
         /// Gets a list of all payment methods configured for the users account
         /// </summary>
-        public Gateway[] GetGateways()
+        public Gateway[] GetGateways(string countryCode = null, string currency = null, int? amount = null)
         {
-            var response = DoRequest<Gateway[]>(_urlProvider.GatewaysUrl());
+            var response = DoRequest<Gateway[]>(_urlProvider.GatewaysUrl(countryCode, currency, amount));
             return response.Data;
         }
 
@@ -284,5 +284,6 @@ namespace MultiSafepay
         }
 
         #endregion
+
     }
 }
