@@ -26,7 +26,8 @@ namespace MultiSafepay.UnitTests.Model
 		                        ""currency"": null,
                                 ""description"": null,
                                 ""tracktrace_code"": null,
-                                ""carrier"": null
+                                ""carrier"": null,
+                                ""reason"": null
 	        }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
 
@@ -52,7 +53,8 @@ namespace MultiSafepay.UnitTests.Model
                                 ""description"": null,
                                 ""tracktrace_code"": null,
                                 ""carrier"": null,
-                                ""ship_date"": ""1990-01-01T00:00:00""
+                                ""ship_date"": ""1990-01-01T00:00:00"",
+                                ""reason"": null
 	        }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }

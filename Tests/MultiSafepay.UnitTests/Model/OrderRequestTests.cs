@@ -34,6 +34,7 @@ namespace MultiSafepay.UnitTests.Model
 	            ""var1"": null,
 	            ""var2"": null,
 	            ""var3"": null,
+                ""custom_info"":{},
 	            ""items"": null,
 	            ""manual"": null,
 	            ""days_active"": null,
@@ -46,7 +47,8 @@ namespace MultiSafepay.UnitTests.Model
                 },
                 ""customer"":null,
                 ""shopping_cart"":null,
-                ""checkout_options"": null
+                ""checkout_options"": null,
+                ""custom_fields"": null
 	        }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
 

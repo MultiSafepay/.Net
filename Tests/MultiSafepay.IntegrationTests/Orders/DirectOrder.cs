@@ -85,6 +85,34 @@ namespace MultiSafepay.IntegrationTests.Orders
         }
 
         [TestMethod]
+        public void Orders_CreateOrder_TemporaryVariables()
+        {
+            // Arrange
+            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
+            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var client = new MultiSafepayClient(apiKey, url);
+            var orderId = Guid.NewGuid().ToString();
+
+            var orderRequest = OrderRequest.CreateDirectIdeal("3151", orderId, "product description", 1000, "EUR",
+                 new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"));
+
+            orderRequest.CustomInfo.Variable1 = "custom 1";
+            orderRequest.CustomInfo.Variable2 = "custom 2";
+            orderRequest.CustomInfo.Variable3 = "custom 3";
+
+            // Act
+            var result = client.CreateOrder(orderRequest);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(orderRequest.OrderId, result.OrderId);
+            Assert.AreEqual(orderRequest.CustomInfo.Variable1, result.CustomInfo.Variable1);
+            Assert.AreEqual(orderRequest.CustomInfo.Variable2, result.CustomInfo.Variable2);
+            Assert.AreEqual(orderRequest.CustomInfo.Variable3, result.CustomInfo.Variable3);
+            Assert.IsFalse(String.IsNullOrEmpty(result.PaymentUrl));
+        }
+
+        [TestMethod]
         public void Orders_CreateDirectOrder_FromRecurringId()
         {
             // Arrange

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Dynamic;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace MultiSafepay.Model
@@ -13,6 +14,7 @@ namespace MultiSafepay.Model
             AmountInCents = amountInCents;
             CurrencyCode = currencyCode;
             PaymentOptions = paymentOptions;
+            CustomInfo = new ExpandoObject();
         }
 
         [JsonProperty("type"), JsonConverter(typeof(StringEnumConverter))]
@@ -35,6 +37,8 @@ namespace MultiSafepay.Model
         public string Var2 { get; set; }
         [JsonProperty("var3")]
         public string Var3 { get; set; }
+        [JsonProperty("custom_info")]
+        public dynamic CustomInfo { get; set; }
         [JsonProperty("items")]
         public string Items { get; set; }
         [JsonProperty("manual")]
@@ -51,6 +55,8 @@ namespace MultiSafepay.Model
         public ShoppingCart ShoppingCart { get; set; }
         [JsonProperty("checkout_options")]
         public CheckoutOptions CheckoutOptions { get; set; }
+        [JsonProperty("custom_fields")]
+        public CustomField[] CustomFields { get; set; }
 
         public static OrderRequest CreateDirectIdeal(string issuerId, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
         {

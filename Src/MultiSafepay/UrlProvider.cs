@@ -11,6 +11,7 @@ namespace MultiSafepay
     internal class UrlProvider
     {
         private readonly string _baseUrl;
+        private string _langaugeCode;
 
         internal UrlProvider(string baseUrl)
         {
@@ -24,9 +25,15 @@ namespace MultiSafepay
             }
         }
 
+        internal UrlProvider(string baseUrl, string languageCode)
+            : this(baseUrl)
+        {
+            _langaugeCode = languageCode;
+        }
+
+
         public string GatewaysUrl(string countryCode = null, string currency = null, int? amount = null)
         {
-            var builder = new Uri(_baseUrl + "gateways");
             var queryStringComponents = new Dictionary<string, string>()
             {
                 {"country", HttpUtility.UrlEncode(countryCode)},
@@ -40,45 +47,59 @@ namespace MultiSafepay
 
             if (!String.IsNullOrEmpty(queryString))
             {
-                return _baseUrl + "gateways?" + queryString;
+                return FormatLanguage(_baseUrl + "gateways?" + queryString, _langaugeCode);
             }
 
-            return _baseUrl + "gateways";
+            return FormatLanguage(_baseUrl + "gateways", _langaugeCode);
         }
 
         public string GatewayUrl(string gatewayName)
         {
-            return _baseUrl + "gateways/" + gatewayName;
+            return FormatLanguage(_baseUrl + "gateways/" + gatewayName, _langaugeCode);
         }
 
         public string IssuersUrl(string gatewayName)
         {
-            return _baseUrl + "issuers/" + gatewayName;
+            return FormatLanguage(_baseUrl + "issuers/" + gatewayName, _langaugeCode);
         }
 
         public string OrderUrl(string orderId)
         {
-            return _baseUrl + "orders/" + orderId;
+            return FormatLanguage(_baseUrl + "orders/" + orderId, _langaugeCode);
         }
 
         public string TransactionUrl(string transactionId)
         {
-            return _baseUrl + "transactions/" + transactionId;
+            return FormatLanguage(_baseUrl + "transactions/" + transactionId, _langaugeCode);
         }
 
         public string PaymentLinkUrl(string orderId)
         {
-            return _baseUrl + "orders/" + orderId + "/paymentlink";
+            return FormatLanguage(_baseUrl + "orders/" + orderId + "/paymentlink", _langaugeCode);
         }
 
         public string OrdersUrl()
         {
-            return _baseUrl + "orders";
+            return FormatLanguage(_baseUrl + "orders", _langaugeCode);
         }
 
         public string OrderRefundsUrl(string orderId)
         {
-            return _baseUrl + "orders/" + orderId + "/refunds";
+            return FormatLanguage(_baseUrl + "orders/" + orderId + "/refunds", _langaugeCode);
+        }
+
+        private string FormatLanguage(string baseUrl, string langaugeCode)
+        {
+            if (String.IsNullOrEmpty(langaugeCode))
+            {
+                return baseUrl;
+            }
+
+            if (baseUrl.Contains("?"))
+            {
+                return baseUrl + "&locale=" + langaugeCode.ToLower();
+            }
+            return baseUrl + "?locale=" + langaugeCode.ToLower();
         }
     }
 }

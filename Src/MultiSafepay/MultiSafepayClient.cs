@@ -18,14 +18,17 @@ namespace MultiSafepay
         private readonly WebClient _client;
         private readonly UrlProvider _urlProvider;
         private bool _disposed;
+        public string Language { get; set; }
 
-        public MultiSafepayClient(string apiKey, string apiUrl = "https://pay.multisafepay.com/v1/json/")
+        public MultiSafepayClient(string apiKey, string apiUrl = "https://api.multisafepay.com/v1/json/", string languageCode = null)
         {
             _client = new WebClient();
             _client.Headers["api_key"] = apiKey;
 
-            _urlProvider = new UrlProvider(apiUrl);
+            _urlProvider = new UrlProvider(apiUrl, languageCode);
         }
+
+
 
         #region API Methods
 
@@ -147,20 +150,20 @@ namespace MultiSafepay
         /// <param name="trackingCode">The tracking code for the parcel</param>
         /// <param name="carrier">The shipping company</param>
         /// <param name="shippedDate">The date the parcel was shipped</param>
-        public SimpleResult UpdateOrderShippedStatus(string orderId, string trackingCode, string carrier, DateTime shippedDate)
+        public SimpleResult UpdateOrderShippedStatus(string orderId, string trackingCode, string carrier, DateTime shippedDate, string memo = null)
         {
             var response = DoRequest<object>(_urlProvider.OrderUrl(orderId),
                new UpdateOrder()
                {
                    TrackingCode = trackingCode,
                    Carrier = carrier,
-                   ShippingDate = shippedDate
+                   ShippingDate = shippedDate,
+                   Memo = memo
                }, "PATCH");
             return new SimpleResult() { Success = response.Success };
         }
 
         #endregion
-
 
         #region Private Helpers
 

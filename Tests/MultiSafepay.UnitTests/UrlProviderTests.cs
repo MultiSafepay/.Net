@@ -46,6 +46,38 @@ namespace MultiSafepay.UnitTests
         }
 
         [TestMethod]
+        public void GatewaysUrl_Default_Locale()
+        {
+            foreach (var baseUrl in _baseUrls)
+            {
+                // Arrange
+                var provider = new UrlProvider(baseUrl, "ES");
+
+                // Act
+                var url = provider.GatewaysUrl();
+
+                // Assert
+                Assert.AreEqual(String.Format("{0}/gateways?locale=es", baseUrl.TrimTrailingSlash()), url);
+            }
+        }
+
+        [TestMethod]
+        public void GatewaysUrl_WithFilters_Locale()
+        {
+            foreach (var baseUrl in _baseUrls)
+            {
+                // Arrange
+                var provider = new UrlProvider(baseUrl, "ES");
+
+                // Act
+                var url = provider.GatewaysUrl("NL", "EUR", 100);
+
+                // Assert
+                Assert.AreEqual(String.Format("{0}/gateways?country=NL&currency=EUR&amount=100&locale=es", baseUrl.TrimTrailingSlash()), url);
+            }
+        }
+
+        [TestMethod]
         public void GatewayUrl()
         {
             foreach (var baseUrl in _baseUrls)

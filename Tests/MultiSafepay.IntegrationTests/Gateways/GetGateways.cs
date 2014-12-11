@@ -22,6 +22,21 @@ namespace MultiSafepay.IntegrationTests.Gateways
         }
 
         [TestMethod]
+        public void Gateways_GetGateways_Locale()
+        {
+            // Arrange
+            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
+            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var client = new MultiSafepayClient(apiKey, url);
+
+            // Act
+            var gateways = client.GetGateways("NL");
+
+            // Assert
+            Assert.IsNotNull(gateways);
+        }
+
+        [TestMethod]
         public void Gateways_GetGateways_RestrictCountry()
         {
             // Arrange
@@ -37,7 +52,7 @@ namespace MultiSafepay.IntegrationTests.Gateways
         }
 
         [TestMethod]
-        public void Gateways_GetGateways_RestrictCountryPaymentMethod()
+        public void Gateways_GetGateways_RestrictCurrencyMethod()
         {
             // Arrange
             var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
@@ -45,7 +60,7 @@ namespace MultiSafepay.IntegrationTests.Gateways
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var gateways = client.GetGateways();
+            var gateways = client.GetGateways(null, "USD");
 
             // Assert
             Assert.IsNotNull(gateways);
@@ -60,7 +75,7 @@ namespace MultiSafepay.IntegrationTests.Gateways
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var gateways = client.GetGateways();
+            var gateways = client.GetGateways(null, null, 50000);
 
             // Assert
             Assert.IsNotNull(gateways);

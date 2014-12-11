@@ -23,7 +23,7 @@ namespace MultiSafepay.UnitTests.Model
             Assert.AreEqual(@"{
             ""transaction_id"":null,
             ""created"":null,
-            ""id"":null,
+            ""order_id"":null,
             ""currency"":null,
             ""amount"":0,
             ""gateway"":0,
