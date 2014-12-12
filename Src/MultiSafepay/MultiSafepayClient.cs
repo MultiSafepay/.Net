@@ -82,17 +82,6 @@ namespace MultiSafepay
         }
 
         /// <summary>
-        /// Gets a payment link for a particular order. Note that the MultiSafepay API will only 
-        /// return a payment link if the order is in a valid state to be paid. 
-        /// </summary>
-        /// <param name="orderId">The client specified order id</param>
-        public PaymentLink GetPaymentLink(string orderId)
-        {
-            var response = DoRequest<PaymentLink>(_urlProvider.PaymentLinkUrl(orderId));
-            return response == null ? null : response.Data;
-        }
-
-        /// <summary>
         /// Create a simple redirect order
         /// </summary>
         /// <param name="orderRequest">OrderRequest object populated with the order details</param>

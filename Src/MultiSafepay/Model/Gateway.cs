@@ -8,7 +8,5 @@ namespace MultiSafepay.Model
         public string Id { get; set; }
         [JsonProperty("description")]
         public string Description { get; set; }
-        [JsonProperty("markup_fee")]
-        public string MarkupFee { get; set; }
     }
 }

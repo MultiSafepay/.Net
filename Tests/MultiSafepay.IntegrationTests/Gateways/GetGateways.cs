@@ -12,7 +12,7 @@ namespace MultiSafepay.IntegrationTests.Gateways
             // Arrange
             var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
             var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
-            var client = new MultiSafepayClient(apiKey, url);
+            var client = new MultiSafepayClient(apiKey);
 
             // Act
             var gateways = client.GetGateways();

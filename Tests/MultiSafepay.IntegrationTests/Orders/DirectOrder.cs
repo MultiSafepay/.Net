@@ -81,7 +81,6 @@ namespace MultiSafepay.IntegrationTests.Orders
             Assert.AreEqual(orderRequest.Var1, retrievedOrder.Var1);
             Assert.AreEqual(orderRequest.Var2, retrievedOrder.Var2);
             Assert.AreEqual(orderRequest.Var3, retrievedOrder.Var3);
-
         }
 
         [TestMethod]
