@@ -117,7 +117,7 @@ namespace MultiSafepay
                 {
                     InvoiceId = invoiceNumber
                 }, "PATCH");
-            return new SimpleResult() {Success = response.Success};
+            return new SimpleResult() { Success = response.Success };
         }
 
         /// <summary>
@@ -255,12 +255,24 @@ namespace MultiSafepay
         /// <returns></returns>
         private static ResponseMessage<T> DeserializeResult<T>(string response) where T : class
         {
-            var serializedResult = JsonConvert.DeserializeObject<ResponseMessage<T>>(response);
-            if (serializedResult.Success == false)
+            try
             {
-                throw new MultiSafepayException(serializedResult.ErrorCode, serializedResult.ErrorInfo);
+                var serializedResult = JsonConvert.DeserializeObject<ResponseMessage<T>>(response);
+                if (serializedResult.Success == false)
+                {
+                    throw new MultiSafepayException(serializedResult.ErrorCode, serializedResult.ErrorInfo);
+                }
+                return serializedResult;
             }
-            return serializedResult;
+            catch (JsonSerializationException ex)
+            {
+                throw new MultiSafepayException(9999,
+                    String.Format("{0}{1}{1}{2}",
+                    "Error deserializing response. Possible error on server.",
+                    Environment.NewLine,
+                    response),
+                    ex);
+            }
         }
 
         #endregion
