@@ -2,9 +2,9 @@
 {
     public enum CustomFieldType
     {
-        TEXTBOX, 
-        SELECTBOX, 
-        CHECKBOX, 
-        RADIOLIST
+        textbox, 
+        selectbox, 
+        checkbox, 
+        radiolist
     }
 }
