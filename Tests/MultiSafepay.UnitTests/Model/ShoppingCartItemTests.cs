@@ -23,6 +23,7 @@ namespace MultiSafepay.UnitTests.Model
 				""name"": null,
 				""description"": null,
 				""unit_price"": 0,
+                ""currency"": ""EUR"",
 				""quantity"": 0,
 				""merchant_item_id"": null,
 				""tax_table_selector"": null,

@@ -23,13 +23,14 @@ namespace MultiSafepay.UnitTests.Model
             Assert.AreEqual(@"{
 				""standard_type"": null,
 				""name"": null,
-                ""type"": ""TEXTBOX"",
+                ""type"": ""textbox"",
                 ""save_value"": false,
                 ""default"": null,
                 ""description_top"": null,
                 ""description_right"": null,
                 ""description_bottom"": null,
-                ""area_restrictions"": null
+                ""area_restrictions"": null,
+                ""label"": null
 			}".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }
