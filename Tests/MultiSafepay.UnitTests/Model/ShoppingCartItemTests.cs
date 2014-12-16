@@ -13,7 +13,7 @@ namespace MultiSafepay.UnitTests.Model
         public void ShoppingCartItem_Serialize_PropertyNamesAsExpected()
         {
             // Arrange
-            var shoppingCartItem = new ShoppingCartItem(null, 0, 0);
+            var shoppingCartItem = new ShoppingCartItem(null, 0, 0, "EUR");
 
             // Act
             var serializedObject = JsonConvert.SerializeObject(shoppingCartItem);

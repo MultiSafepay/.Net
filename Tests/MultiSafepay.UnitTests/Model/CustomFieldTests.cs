@@ -14,7 +14,7 @@ namespace MultiSafepay.UnitTests.Model
         public void CustomField_Serialize_PropertyNamesAsExpected()
         {
             // Arrange
-            var customField = new CustomField();
+            var customField = new CustomField(null, CustomFieldType.textbox);
 
             // Act
             var serializedObject = JsonConvert.SerializeObject(customField);

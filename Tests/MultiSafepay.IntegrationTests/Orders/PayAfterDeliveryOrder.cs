@@ -24,8 +24,8 @@ namespace MultiSafepay.IntegrationTests.Orders
                 {
                     Items = new[]
                     {
-                        new ShoppingCartItem("Test Product", 10, 2),
-                        new ShoppingCartItem("Test Product 2", 10, 2)
+                        new ShoppingCartItem("Test Product", 10, 2, "EUR"),
+                        new ShoppingCartItem("Test Product 2", 10, 2, "EUR")
                     }
                 },
                 new Customer()
@@ -36,7 +36,7 @@ namespace MultiSafepay.IntegrationTests.Orders
                         Address1 = "Kraanspoor",
                         City = "Amsterdam",
                         Country = "NL",
-                        ZipCode = "1033SC"
+                        PostCode = "1033SC"
                     }
                 );
 

@@ -15,7 +15,7 @@ namespace MultiSafepay.IntegrationTests.Gateways
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var gateway = client.GetGateway("Barclays");
+            var gateway = client.GetGateway("visa");
 
             // Assert
             Assert.AreEqual("VISA", gateway.Id);

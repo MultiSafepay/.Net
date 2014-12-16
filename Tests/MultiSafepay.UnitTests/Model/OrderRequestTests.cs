@@ -185,7 +185,7 @@ namespace MultiSafepay.UnitTests.Model
                 {
                     Items = new[]
                     {
-                        new ShoppingCartItem("Test Product", 10, 2),
+                        new ShoppingCartItem("Test Product", 10, 2, "EUR"),
                     }
                 },
                 new Customer
@@ -196,7 +196,7 @@ namespace MultiSafepay.UnitTests.Model
                     Address1 = "Kraanspoor",
                     City = "Amsterdam",
                     Country = "NL",
-                    ZipCode = "1033SC"
+                    PostCode = "1033SC"
                 }
                 );
 
@@ -270,7 +270,7 @@ namespace MultiSafepay.UnitTests.Model
                 {
                     Items = new[]
                     {
-                        new ShoppingCartItem("Test Product", 10, 2),
+                        new ShoppingCartItem("Test Product", 10, 2, "EUR"),
                     }
                 },
                 new Customer
@@ -281,7 +281,7 @@ namespace MultiSafepay.UnitTests.Model
                     Address1 = "Kraanspoor",
                     City = "Amsterdam",
                     Country = "NL",
-                    ZipCode = "1033SC"
+                    PostCode = "1033SC"
                 }
                 );
 
@@ -354,7 +354,7 @@ namespace MultiSafepay.UnitTests.Model
                 {
                     Items = new[]
                     {
-                        new ShoppingCartItem("Test Product", 10, 2),
+                        new ShoppingCartItem("Test Product", 10, 2, "EUR"),
                     }
                 },
                 new CheckoutOptions()

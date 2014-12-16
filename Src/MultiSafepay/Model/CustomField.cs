@@ -5,6 +5,18 @@ namespace MultiSafepay.Model
 {
     public class CustomField
     {
+        public CustomField(string name, CustomFieldType type)
+        {
+            Name = name;
+            Type = type;
+        }
+
+        public CustomField(string name, StandardCustomField type)
+        {
+            Name = name;
+            StandardType = type;
+        }
+
         [JsonProperty("standard_type"), JsonConverter(typeof(StringEnumConverter))]
         public StandardCustomField? StandardType { get; set; }
         [JsonProperty("name")]
@@ -23,5 +35,7 @@ namespace MultiSafepay.Model
         public FieldDescription DescriptionBottom { get; set; }
         [JsonProperty("area_restrictions")]
         public string AreaRestrictions { get; set; }
+        [JsonProperty("label")]
+        public string Label { get; set; }
     }
 }

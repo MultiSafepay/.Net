@@ -18,6 +18,7 @@ namespace MultiSafepay.IntegrationTests.Issuers
             var gateways = client.GetIssuers("iDEAL");
 
             // Assert
+            Assert.IsNotNull(gateways);
         }
     }
 }

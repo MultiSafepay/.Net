@@ -27,7 +27,7 @@ namespace MultiSafepay.IntegrationTests.Orders
                 Address1 = "Kraanspoor 39",
                 City = "Amsterdam",
                 Country = "Netherlands",
-                ZipCode = "1033SC"
+                PostCode = "1033SC"
             };
 
             // Act
