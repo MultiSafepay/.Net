@@ -4,7 +4,7 @@ namespace MultiSafepay.Model
 {
     public class ShippingMethod
     {
-        public ShippingMethod(string name, int price, string currencyCodeCode)
+        public ShippingMethod(string name, double price, string currencyCodeCode)
         {
             Name = name;
             Price = price;
@@ -14,7 +14,7 @@ namespace MultiSafepay.Model
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("price")]
-        public int Price { get; set; }
+        public double Price { get; set; }
         [JsonProperty("currency")]
         public string CurrencyCode { get; set; }
         [JsonProperty("allowed_areas")]
