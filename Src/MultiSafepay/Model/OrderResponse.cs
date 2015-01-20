@@ -9,12 +9,20 @@ namespace MultiSafepay.Model
         public string TransactionId { get; set; }
         [JsonProperty("created")]
         public DateTime? CreatedDate { get; set; }
+        [JsonProperty("modified")]
+        public DateTime? ModifiedDate { get; set; }
         [JsonProperty("order_id")]
         public string OrderId { get; set; }
         [JsonProperty("currency")]
         public string CurrencyCode { get; set; }
         [JsonProperty("amount")]
         public int AmountInCents { get; set; }
+        [JsonProperty("amount_refunded")]
+        public double AmountRefunded { get; set; }
+        [JsonProperty("status")]
+        public string Status { get; set; }
+        [JsonProperty("fastcheckout")]
+        public int FastCheckout { get; set; }
         [JsonProperty("gateway")]
         public int GatewayId { get; set; }
         [JsonProperty("description")]
