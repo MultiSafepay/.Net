@@ -4,6 +4,8 @@ namespace MultiSafepay.Model
 {
     public class Customer
     {
+        [JsonProperty("company")]
+        public bool Company { get; set; }
         [JsonProperty("locale")]
         public string Locale { get; set; }
         [JsonProperty("ip_address")]

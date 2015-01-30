@@ -22,7 +22,7 @@ namespace MultiSafepay.Model
         [JsonProperty("status")]
         public string Status { get; set; }
         [JsonProperty("fastcheckout")]
-        public int FastCheckout { get; set; }
+        public string FastCheckout { get; set; }
         [JsonProperty("gateway")]
         public int GatewayId { get; set; }
         [JsonProperty("description")]
