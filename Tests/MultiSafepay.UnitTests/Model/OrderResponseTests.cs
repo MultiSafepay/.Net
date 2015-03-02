@@ -23,9 +23,13 @@ namespace MultiSafepay.UnitTests.Model
             Assert.AreEqual(@"{
             ""transaction_id"":null,
             ""created"":null,
+            ""modified"":null,
             ""order_id"":null,
             ""currency"":null,
             ""amount"":0,
+            ""amount_refunded"":0.0,
+            ""status"":null,
+            ""fastcheckout"":null,
             ""gateway"":0,
             ""description"":null,
             ""var1"":null,

@@ -20,6 +20,7 @@ namespace MultiSafepay.UnitTests.Model
 
             // Assert
             Assert.AreEqual(@"{
+                                ""company"": false,
 		                        ""locale"": null,
 		                        ""ip_address"": null,
 		                        ""forwarded_ip"": null,
@@ -33,7 +34,8 @@ namespace MultiSafepay.UnitTests.Model
 		                        ""state"": null,
 		                        ""country"": null,
 		                        ""phone"": null,
-		                        ""email"": null
+		                        ""email"": null,
+                                ""disable_send_email"": null
 	        }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }
