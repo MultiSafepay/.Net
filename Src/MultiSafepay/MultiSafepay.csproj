@@ -65,6 +65,7 @@
     <Compile Include="Model\ShoppingCart.cs" />
     <Compile Include="Model\ShoppingCartItem.cs" />
     <Compile Include="Model\StandardCustomField.cs" />
+    <Compile Include="Model\TaxRateRule.cs" />
     <Compile Include="Model\TaxTable.cs" />
     <Compile Include="Model\TaxTables.cs" />
     <Compile Include="Model\Weight.cs" />
