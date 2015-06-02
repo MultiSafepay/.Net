@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MultiSafepay.Model;
@@ -24,14 +25,30 @@ namespace MultiSafepay.IntegrationTests.Orders
                     Items = new[]
                     {
                         new ShoppingCartItem("Test Product", 10, 2, "EUR"),
-                        new ShoppingCartItem("Test Product 2", 10, 2, "EUR")
+                        new ShoppingCartItem("Test Product 2", 10, 1, "EUR")
                     }
                 },
                 new CheckoutOptions()
                 {
-                    NoShippingMethod = true
-                }
-                );
+                    NoShippingMethod = false,
+                    ShippingMethods = new ShippingMethods()
+                    {
+                        FlatRateShippingMethods = new List<ShippingMethod>
+                        {
+                            new ShippingMethod("test", 1.0, "EUR"),
+                            new ShippingMethod("test2", 3.0, "EUR"),
+                        }
+                    },
+                    TaxTables = new TaxTables()
+                    {
+                        DefaultTaxTable = new TaxTable()
+                        {
+                            Name = "Default",
+                            Rules = new [] { new TaxRateRule() { Rate = 0.21 }},
+                            ShippingTaxed = true
+                        }
+                    }
+                });
             // Act
             var result = client.CreateOrder(orderRequest);
 
@@ -171,7 +188,7 @@ namespace MultiSafepay.IntegrationTests.Orders
                         DefaultTaxTable = new TaxTable()
                         {
                             Name = "Default",
-                            Rate = 0.05,
+                            Rules = new[] { new TaxRateRule() { Rate = 0.05 } },
                             ShippingTaxed = true
                         }
                     }
@@ -220,7 +237,7 @@ namespace MultiSafepay.IntegrationTests.Orders
                         DefaultTaxTable = new TaxTable()
                         {
                             Name = "Default",
-                            Rate = 0.1,
+                            Rules = new[] { new TaxRateRule() { Rate = 0.10 } },
                             ShippingTaxed = true
                         },
                         AlternateTaxTables = new []
@@ -228,7 +245,7 @@ namespace MultiSafepay.IntegrationTests.Orders
                             new TaxTable()
                             {
                                 Name = "Alternate",
-                                Rate = 0.05,
+                                Rules = new [] { new TaxRateRule() { Rate = 0.05 }},
                                 ShippingTaxed = false
                             }
                         }

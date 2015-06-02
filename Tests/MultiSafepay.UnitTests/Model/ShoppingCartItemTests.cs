@@ -22,7 +22,7 @@ namespace MultiSafepay.UnitTests.Model
             Assert.AreEqual(@"{
 				""name"": null,
 				""description"": null,
-				""unit_price"": 0,
+				""unit_price"": 0.0,
                 ""currency"": ""EUR"",
 				""quantity"": 0,
 				""merchant_item_id"": null,

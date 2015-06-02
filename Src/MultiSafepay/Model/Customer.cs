@@ -34,5 +34,8 @@ namespace MultiSafepay.Model
         public string Phone { get; set; }
         [JsonProperty("email")]
         public string Email { get; set; }
+
+        [JsonProperty("disable_send_email")]
+        public string DisableSendEmail { get; set; }
     }
 }
