@@ -155,3 +155,9 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+Src/MultiSafepay/bin/
+Tests/MultiSafepay.UnitTests/obj/
+Tests/MultiSafepay.UnitTests/bin/
+Src/MultiSafepay/obj/
+Tests/MultiSafepay.IntegrationTests/bin/
+Tests/MultiSafepay.IntegrationTests/obj/
