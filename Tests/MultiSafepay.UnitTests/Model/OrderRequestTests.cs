@@ -188,6 +188,18 @@ namespace MultiSafepay.UnitTests.Model
                         new ShoppingCartItem("Test Product", 10, 2, "EUR"),
                     }
                 },
+                new CheckoutOptions()
+                {
+                    TaxTables = new TaxTables()
+                    {
+                        DefaultTaxTable = new TaxTable()
+                        {
+                            Name = "Default",
+                            Rules = new[] { new TaxRateRule() { Rate = 0.21 } },
+                            ShippingTaxed = false
+                        }
+                    }
+                },
                 new Customer
                 {
                     FirstName = "John",
@@ -224,6 +236,7 @@ namespace MultiSafepay.UnitTests.Model
             Assert.IsNotNull(order.ShoppingCart.Items[0].Name);
             Assert.IsNotNull(order.ShoppingCart.Items[0].UnitPrice);
             Assert.IsNotNull(order.ShoppingCart.Items[0].Quantity);
+            Assert.IsNotNull(order.CheckoutOptions.TaxTables.DefaultTaxTable);
             Assert.IsNotNull(order.Customer);
             Assert.IsNotNull(order.Customer.FirstName);
             Assert.IsNotNull(order.Customer.LastName);
@@ -251,6 +264,8 @@ namespace MultiSafepay.UnitTests.Model
             Assert.AreEqual("Test Product", order.ShoppingCart.Items[0].Name);
             Assert.AreEqual(10, order.ShoppingCart.Items[0].UnitPrice);
             Assert.AreEqual(2, order.ShoppingCart.Items[0].Quantity);
+            Assert.AreEqual("Default", order.CheckoutOptions.TaxTables.DefaultTaxTable.Name);
+            Assert.AreEqual(0.21, order.CheckoutOptions.TaxTables.DefaultTaxTable.Rules[0].Rate);
             Assert.AreEqual("John", order.Customer.FirstName);
             Assert.AreEqual("Doe", order.Customer.LastName);
             Assert.AreEqual("Kraanspoor", order.Customer.Address1);

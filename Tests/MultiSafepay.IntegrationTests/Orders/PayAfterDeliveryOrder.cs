@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MultiSafepay.Model;
@@ -17,15 +18,26 @@ namespace MultiSafepay.IntegrationTests.Orders
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
-            var orderRequest = OrderRequest.CreateDirectPayAfterDeliveryOrder(orderId, "product description", 4000, "EUR",
+            var orderRequest = OrderRequest.CreateDirectPayAfterDeliveryOrder(orderId, "product description", 1210, "EUR",
                 new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"),
                 GatewayInfo.PayAfterDelivery(new DateTime(1986, 08, 31), "NL39 RABO 0300 0652 64", "+31 (0)20 8500 500", "test@multisafepay.com", "referrer", "useragent"),
                 new ShoppingCart
                 {
                     Items = new[]
                     {
-                        new ShoppingCartItem("Test Product", 10, 2, "EUR"),
-                        new ShoppingCartItem("Test Product 2", 10, 2, "EUR")
+                        new ShoppingCartItem("Test Product", 10.0, 1, "EUR")
+                    }
+                },
+                new CheckoutOptions()
+                {
+                    TaxTables = new TaxTables()
+                    {
+                        DefaultTaxTable = new TaxTable()
+                        {
+                            Name = "Default",
+                            Rules = new [] { new TaxRateRule() { Rate = 0.21 }},
+                            ShippingTaxed = false
+                        }
                     }
                 },
                 new Customer()
@@ -46,7 +58,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(orderRequest.OrderId, result.OrderId);
-            Assert.IsTrue(String.IsNullOrEmpty(result.PaymentUrl));
+            Assert.IsTrue(result.PaymentUrl.StartsWith("http://example.com/success?transactionid=")); // redirect to success URL
 
         }
 
@@ -59,7 +71,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var result = client.UpdateOrderShippedStatus("99db5439-def8-45af-a854-c6701beef568", "tracktracecode", "carrier", DateTime.Now, "memo");
+            var result = client.UpdateOrderShippedStatus("22b29891-f2fa-493a-bacc-c78f0e090ddb", "tracktracecode", "carrier", DateTime.Now, "memo");
 
             // Assert
             Assert.IsTrue(result.Success);
