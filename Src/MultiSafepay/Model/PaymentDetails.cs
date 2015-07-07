@@ -14,5 +14,7 @@ namespace MultiSafepay.Model
         public string AccountHolderName { get; set; }
         [JsonProperty("external_transaction_id")]
         public string ExternalTransactionId { get; set; }
+        [JsonProperty("last4")]
+        public string Last4Digits { get; set; }
     }
 }
