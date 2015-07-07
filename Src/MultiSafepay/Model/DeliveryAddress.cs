@@ -15,7 +15,7 @@ namespace MultiSafepay.Model
         [JsonProperty("house_number")]
 		public string HouseNumber { get; set; }
         [JsonProperty("zip_code")]
-		public string ZipCode { get; set; }
+		public string PostCode { get; set; }
         [JsonProperty("city")]
 		public string City { get; set; }
         [JsonProperty("state")]

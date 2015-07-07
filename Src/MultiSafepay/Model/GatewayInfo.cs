@@ -24,6 +24,8 @@ namespace MultiSafepay.Model
 		public string UserAgent { get; set; }
         [JsonProperty("email")]
         public string Email { get; set; }
+        [JsonProperty("gender")]
+        public string Gender { get; set; }
 
         public static GatewayInfo IDeal(string issuerId)
         {
@@ -42,6 +44,17 @@ namespace MultiSafepay.Model
                 Email = email,
                 Referrer = referrer,
                 UserAgent = userAgent
+            };
+        }
+
+        public static GatewayInfo Klarna(DateTime birthday, string gender, string phone, string email)
+        {
+            return new GatewayInfo
+            {
+                Birthday = birthday,
+                Gender = gender,
+                Phone = phone,
+                Email = email,
             };
         }
     }
