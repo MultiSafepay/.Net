@@ -51,6 +51,8 @@ namespace MultiSafepay.Model
         public PaymentOptions PaymentOptions { get; set; }
         [JsonProperty("customer")]
         public Customer Customer { get; set; }
+        [JsonProperty("delivery")]
+        public DeliveryAddress DeliveryAddress { get; set; }
         [JsonProperty("shopping_cart")]
         public ShoppingCart ShoppingCart { get; set; }
         [JsonProperty("checkout_options")]
@@ -84,7 +86,7 @@ namespace MultiSafepay.Model
                 paymentOptions);
         }
 
-        public static OrderRequest CreateDirectPayAfterDeliveryOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, ShoppingCart shoppingCart, Customer customer)
+        public static OrderRequest CreateDirectPayAfterDeliveryOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, ShoppingCart shoppingCart, CheckoutOptions checkoutOptions, Customer customer)
         {
             return new OrderRequest(
                 OrderType.Direct,
@@ -97,7 +99,8 @@ namespace MultiSafepay.Model
                 GatewayId = "PAYAFTER",
                 GatewayInfo = gatewayInfo,
                 ShoppingCart = shoppingCart,
-                Customer = customer
+                Customer = customer,
+                CheckoutOptions = checkoutOptions
             };
         }
 
@@ -160,6 +163,25 @@ namespace MultiSafepay.Model
                 RecurringId = recurringId
             };
 
+        }
+
+        public static OrderRequest CreateDirectKlarnaOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, ShoppingCart shoppingCart, CheckoutOptions checkoutOptions, Customer customer, DeliveryAddress deliveryAddress)
+        {
+            return new OrderRequest(
+                OrderType.Direct,
+                orderId,
+                description,
+                amountInCents,
+                currencyCode,
+                paymentOptions)
+            {
+                GatewayId = "KLARNA",
+                GatewayInfo = gatewayInfo,
+                ShoppingCart = shoppingCart,
+                Customer = customer,
+                DeliveryAddress = deliveryAddress,
+                CheckoutOptions = checkoutOptions
+            };
         }
     }
 }

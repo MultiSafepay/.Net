@@ -58,6 +58,7 @@
     <Compile Include="Issuers\GetIssuers.cs" />
     <Compile Include="Orders\DirectOrder.cs" />
     <Compile Include="Orders\Order.cs" />
+    <Compile Include="Orders\KlarnaOrder.cs" />
     <Compile Include="Orders\PayAfterDeliveryOrder.cs" />
     <Compile Include="Orders\FastCheckoutOrder.cs" />
     <Compile Include="Issuers\CreatePayAfterDeliveryOrder.cs" />

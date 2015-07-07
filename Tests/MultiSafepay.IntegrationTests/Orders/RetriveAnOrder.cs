@@ -15,7 +15,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            const string orderId = "2145124t";
+            const string orderId = "2669a4d2-064e-4bb6-bc38-684d108783f0";
             var result = client.GetOrder(orderId);
 
             // Assert
