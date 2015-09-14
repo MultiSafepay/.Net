@@ -6,6 +6,7 @@ using System.Net;
 using System.Security.Cryptography;
 using MultiSafepay.Model;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace MultiSafepay
 {
@@ -246,7 +247,9 @@ namespace MultiSafepay
         {
             try
             {
-                var serializedResult = JsonConvert.DeserializeObject<ResponseMessage<T>>(response);
+                var format = "dd-MM-yyyy HH:mm:ss"; // MSP api standard date time format
+                var dateTimeConverter = new IsoDateTimeConverter { DateTimeFormat = format };
+                var serializedResult = JsonConvert.DeserializeObject<ResponseMessage<T>>(response, dateTimeConverter);
                 if (serializedResult.Success == false)
                 {
                     throw new MultiSafepayException(serializedResult.ErrorCode, serializedResult.ErrorInfo);
