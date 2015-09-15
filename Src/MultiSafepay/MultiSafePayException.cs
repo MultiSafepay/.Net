@@ -7,12 +7,17 @@ namespace MultiSafepay
     /// MultiSafepay API. The original exception can be found as the BaseException.
     /// </summary>
     [Serializable]
-    internal class MultiSafepayException : Exception
+    public class MultiSafepayException : Exception
     {
         public int ErrorCode { get; private set; }
         public string ErrorInfo { get; private set; }
         public Exception BaseException { get; private set; }
 
+        public MultiSafepayException()
+        : base() { }
+
+        public MultiSafepayException(string format, params object[] args)
+        : base(string.Format(format, args)) { }
 
         public MultiSafepayException(int errorCode, string errorInfo, Exception baseException)
             : this (errorCode, errorInfo)
