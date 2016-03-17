@@ -75,16 +75,6 @@ namespace MultiSafepay
         }
 
         /// <summary>
-        /// Retrieves details about a particular transaction
-        /// </summary>
-        /// <param name="transactionId">The MultiSafepay unique transaction id</param>
-        public Transaction GetTransaction(string transactionId)
-        {
-            var response = DoRequest<Transaction>(_urlProvider.TransactionUrl(transactionId));
-            return response.Data;
-        }
-
-        /// <summary>
         /// Create a simple redirect order
         /// </summary>
         /// <param name="orderRequest">OrderRequest object populated with the order details</param>
