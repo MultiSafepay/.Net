@@ -183,5 +183,24 @@ namespace MultiSafepay.Model
                 CheckoutOptions = checkoutOptions
             };
         }
+
+        public static OrderRequest CreateDirectEinvoiceOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, ShoppingCart shoppingCart, CheckoutOptions checkoutOptions, Customer customer, DeliveryAddress deliveryAddress)
+        {
+            return new OrderRequest(
+                OrderType.Direct,
+                orderId,
+                description,
+                amountInCents,
+                currencyCode,
+                paymentOptions)
+            {
+                GatewayId = "EINVOICE",
+                GatewayInfo = gatewayInfo,
+                ShoppingCart = shoppingCart,
+                Customer = customer,
+                DeliveryAddress = deliveryAddress,
+                CheckoutOptions = checkoutOptions
+            };
+        }
     }
 }

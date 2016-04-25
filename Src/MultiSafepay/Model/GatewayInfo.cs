@@ -47,6 +47,19 @@ namespace MultiSafepay.Model
             };
         }
 
+        public static GatewayInfo Einvoice(DateTime? birthday, string bankAccount, string phone, string email, string referrer, string userAgent)
+        {
+            return new GatewayInfo
+            {
+                Birthday = birthday,
+                BankAccount = bankAccount,
+                Phone = phone,
+                Email = email,
+                Referrer = referrer,
+                UserAgent = userAgent
+            };
+        }
+
         public static GatewayInfo Klarna(DateTime birthday, string gender, string phone, string email)
         {
             return new GatewayInfo
