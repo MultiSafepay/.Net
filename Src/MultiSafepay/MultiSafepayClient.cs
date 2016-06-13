@@ -208,13 +208,24 @@ namespace MultiSafepay
             }
             catch (WebException ex)
             {
-                var reader = new StreamReader(ex.Response.GetResponseStream());
-                var response = reader.ReadToEnd();
-                Trace.WriteLine(response);
+                //Response from server is not empty
+                if (ex.Response != null)
+                {
+                    var reader = new StreamReader(ex.Response.GetResponseStream());
+                    var response = reader.ReadToEnd();
+                    Trace.WriteLine(response);
 
-                var r = JsonConvert.DeserializeObject<ResponseMessage>(response);
+                    var r = JsonConvert.DeserializeObject<ResponseMessage>(response);
 
-                throw new MultiSafepayException(r.ErrorCode, r.ErrorInfo, ex);
+                    throw new MultiSafepayException(r.ErrorCode, r.ErrorInfo, ex);
+                }
+                //No response from server, possible 404 or timeout
+                throw new MultiSafepayException(9999,
+                    String.Format("{0}{1}{1}{2}",
+                    "Error deserializing response. Possible error on server.",
+                    Environment.NewLine,
+                    url),
+                    ex);
             }
         }
 
