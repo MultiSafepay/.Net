@@ -288,6 +288,18 @@ namespace MultiSafepay.UnitTests.Model
                         new ShoppingCartItem("Test Product", 10, 2, "EUR"),
                     }
                 },
+                new CheckoutOptions()
+                {
+                    TaxTables = new TaxTables()
+                    {
+                        DefaultTaxTable = new TaxTable()
+                        {
+                            Name = "Default",
+                            Rules = new[] { new TaxRateRule() { Rate = 0.21 } },
+                            ShippingTaxed = false
+                        }
+                    }
+                },
                 new Customer
                 {
                     FirstName = "John",
@@ -297,8 +309,7 @@ namespace MultiSafepay.UnitTests.Model
                     City = "Amsterdam",
                     Country = "NL",
                     PostCode = "1033SC"
-                }
-                );
+                });
 
             // Assert
             Assert.IsNotNull(order.Type);

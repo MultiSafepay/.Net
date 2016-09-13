@@ -104,7 +104,13 @@ namespace MultiSafepay.Model
             };
         }
 
+        [System.Obsolete("use class CreateRedirectPayAfterDeliveryOrder with checkoutOptions")]
         public static OrderRequest CreateRedirectPayAfterDeliveryOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, ShoppingCart shoppingCart, Customer customer)
+        {
+            return CreateRedirectPayAfterDeliveryOrder(orderId, description, amountInCents, currencyCode, paymentOptions, gatewayInfo, shoppingCart, new CheckoutOptions(), customer);
+        }
+
+        public static OrderRequest CreateRedirectPayAfterDeliveryOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, ShoppingCart shoppingCart,CheckoutOptions checkoutOptions, Customer customer)
         {
             return new OrderRequest(
                 OrderType.Redirect,
@@ -117,10 +123,11 @@ namespace MultiSafepay.Model
                 GatewayId = "PAYAFTER",
                 GatewayInfo = gatewayInfo,
                 ShoppingCart = shoppingCart,
-                Customer = customer
+                Customer = customer,
+                CheckoutOptions = checkoutOptions
             };
         }
-
+        
         public static OrderRequest CreateDirectBankTransfer(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
         {
             return new OrderRequest(
