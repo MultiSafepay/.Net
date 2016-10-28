@@ -70,8 +70,23 @@ namespace MultiSafepay.Model
                 currencyCode,
                 paymentOptions)
             {
-                GatewayId = "iDEAL",
+                GatewayId   = "iDEAL",
                 GatewayInfo = GatewayInfo.IDeal(issuerId)
+            };
+        }
+
+        public static OrderRequest CreateDirectIdealQR(int qrSize, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
+        {
+            return new OrderRequest(
+                OrderType.Redirect,//Also supported empty or OrderType.Direct
+                orderId,
+                description,
+                amountInCents,
+                currencyCode,
+                paymentOptions)
+            {
+                GatewayId   = "IDEALQR",
+                GatewayInfo = GatewayInfo.IDealQR(qrSize)
             };
         }
 

@@ -12,6 +12,8 @@ namespace MultiSafepay.Model
 
         [JsonProperty("issuer_id")]
         public string IssuerId { get; set; }
+        [JsonProperty("qr_size")]
+        public int QrSize { get; set; }
         [JsonProperty("birthday"), JsonConverter(typeof(JsonDateTimeConverter))]
         public DateTime? Birthday { get; set; }
         [JsonProperty("bank_account")]
@@ -32,6 +34,13 @@ namespace MultiSafepay.Model
             return new GatewayInfo
             {
                 IssuerId = issuerId
+            };
+        }
+        public static GatewayInfo IDealQR(int qrSize)
+        {
+            return new GatewayInfo
+            {
+                QrSize = qrSize
             };
         }
         public static GatewayInfo PayAfterDelivery(DateTime? birthday, string bankAccount, string phone, string email, string referrer, string userAgent)
