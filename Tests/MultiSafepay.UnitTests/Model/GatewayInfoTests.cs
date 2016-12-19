@@ -21,12 +21,14 @@ namespace MultiSafepay.UnitTests.Model
             // Assert
             Assert.AreEqual(@"{
                 ""issuer_id"": null,
+                ""qr_size"": 0,
 		        ""birthday"": null,
 		        ""bank_account"": null,
 		        ""phone"": null,
 		        ""referrer"": null,
 		        ""user_agent"": null,
-                ""email"": null
+                ""email"": null,
+                ""gender"": null
 	        }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }

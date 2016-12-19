@@ -19,7 +19,7 @@ namespace MultiSafepay.IntegrationTests.Orders
 
             var orderRequest = OrderRequest.CreateDirectKlarnaOrder(orderId, "product description", 1210, "EUR",
                 new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"),
-                GatewayInfo.Klarna(new DateTime(1970, 12, 12), "male", "+31 (0)20 8500 500", "test@multisafepay.com"),
+                GatewayInfo.Klarna(new DateTime(1970, 07, 10), "male", "+31 (0)20 8500 500", "test@multisafepay.com"),
                 new ShoppingCart
                 {
                     Items = new[]

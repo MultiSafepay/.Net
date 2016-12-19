@@ -22,6 +22,7 @@ namespace MultiSafepay.UnitTests.Model
             Assert.AreEqual(@"{
                 ""order_id"":null,
                 ""payment_url"":null,
+                ""qr_url"":null,
                 ""custom_info"":null
                 }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }

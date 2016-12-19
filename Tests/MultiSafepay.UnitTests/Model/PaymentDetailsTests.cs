@@ -24,7 +24,10 @@ namespace MultiSafepay.UnitTests.Model
                 ""recurring_id"": null,
                 ""account_id"":null,
                 ""account_holder_name"":null,
-                ""external_transaction_id"":null
+                ""external_transaction_id"":null,
+                ""last4"":null,
+                ""account_iban"":null,
+                ""account_bic"":null
                 }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }

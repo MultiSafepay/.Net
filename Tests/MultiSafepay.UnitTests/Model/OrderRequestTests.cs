@@ -46,6 +46,7 @@ namespace MultiSafepay.UnitTests.Model
                     ""close_window"":true
                 },
                 ""customer"":null,
+                ""delivery"":null,
                 ""shopping_cart"":null,
                 ""checkout_options"": null,
                 ""custom_fields"": null
