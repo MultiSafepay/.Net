@@ -21,6 +21,8 @@ namespace MultiSafepay.Model
         public double AmountRefunded { get; set; }
         [JsonProperty("status")]
         public string Status { get; set; }
+        [JsonProperty("financial_status")]
+        public string FinancialStatus { get; set; }
         [JsonProperty("fastcheckout")]
         public string FastCheckout { get; set; }
         [JsonProperty("gateway")]
