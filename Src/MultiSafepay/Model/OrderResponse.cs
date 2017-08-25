@@ -39,7 +39,7 @@ namespace MultiSafepay.Model
         public string Items { get; set; }
         [JsonProperty("customer")]
         public Customer Customer { get; set; }
-        [JsonProperty("customer_delivery")]
+        [JsonProperty("delivery")]
         public DeliveryAddress DeliveryAddress { get; set; }
         [JsonProperty("payment_details")]
         public PaymentDetails PaymentDetails { get; set; }

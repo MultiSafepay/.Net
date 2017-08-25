@@ -37,7 +37,7 @@ namespace MultiSafepay.UnitTests.Model
             ""var3"":null,
             ""items"":null,
             ""customer"":null,
-            ""customer_delivery"":null,
+            ""delivery"":null,
             ""payment_details"":null
             }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
