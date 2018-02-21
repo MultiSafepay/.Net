@@ -64,6 +64,7 @@
     <Compile Include="Orders\PayAfterDeliveryOrder.cs" />
     <Compile Include="Orders\FastCheckoutOrder.cs" />
     <Compile Include="Issuers\CreatePayAfterDeliveryOrder.cs" />
+    <Compile Include="Orders\RedirectOrder.cs" />
     <Compile Include="Orders\RetriveAnOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Init.cs" />

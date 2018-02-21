@@ -43,6 +43,10 @@ namespace MultiSafepay.Model
         public string Items { get; set; }
         [JsonProperty("manual")]
         public string Manual { get; set; }
+        [JsonProperty("template_id")]
+        public string TemplateId { get; set; }
+        [JsonProperty("template")]
+        public Template Template { get; set; }
         [JsonProperty("days_active")]
         public string DaysActive { get; set; }
         [JsonProperty("gateway_info")]
@@ -99,6 +103,21 @@ namespace MultiSafepay.Model
                 amountInCents,
                 currencyCode,
                 paymentOptions);
+        }
+
+        public static OrderRequest CreateRedirectWithTemplate(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, string TemplateId, Template Template)
+        {
+            return new OrderRequest(
+                OrderType.Redirect,
+                orderId,
+                description,
+                amountInCents,
+                currencyCode,
+                paymentOptions)
+            {
+                TemplateId = TemplateId,
+                Template = Template
+            };
         }
 
         public static OrderRequest CreateDirectPayAfterDeliveryOrder(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions, GatewayInfo gatewayInfo, ShoppingCart shoppingCart, CheckoutOptions checkoutOptions, Customer customer)

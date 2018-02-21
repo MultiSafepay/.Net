@@ -43,6 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converter\JsonDateTimeConverter.cs" />
+    <Compile Include="Model\TemplateBody.cs" />
+    <Compile Include="Model\TemplateButtonObject.cs" />
+    <Compile Include="Model\TemplateButtonObjectState.cs" />
+    <Compile Include="Model\TemplateButtons.cs" />
+    <Compile Include="Model\TemplateCart.cs" />
+    <Compile Include="Model\TemplateContainer.cs" />
+    <Compile Include="Model\TemplateHeader.cs" />
+    <Compile Include="Model\GatewayInfo.cs" />
     <Compile Include="Model\Issuer.cs" />
     <Compile Include="Model\Gateway.cs" />
     <Compile Include="Model\CheckoutOptions.cs" />
@@ -51,7 +59,6 @@
     <Compile Include="Model\CustomFieldType.cs" />
     <Compile Include="Model\DeliveryAddress.cs" />
     <Compile Include="Model\FieldDescription.cs" />
-    <Compile Include="Model\GatewayInfo.cs" />
     <Compile Include="Model\OrderResponse.cs" />
     <Compile Include="Model\PaymentDetails.cs" />
     <Compile Include="Model\OrderType.cs" />
@@ -70,6 +77,11 @@
     <Compile Include="Model\TaxRateRule.cs" />
     <Compile Include="Model\TaxTable.cs" />
     <Compile Include="Model\TaxTables.cs" />
+    <Compile Include="Model\Template.cs" />
+    <Compile Include="Model\TemplateHeaderObject.cs" />
+    <Compile Include="Model\TemplateInputObject.cs" />
+    <Compile Include="Model\TemplatePaymentForm.cs" />
+    <Compile Include="Model\TemplateSettings.cs" />
     <Compile Include="Model\Weight.cs" />
     <Compile Include="MultiSafepayClient.cs" />
     <Compile Include="MultiSafePayException.cs" />
