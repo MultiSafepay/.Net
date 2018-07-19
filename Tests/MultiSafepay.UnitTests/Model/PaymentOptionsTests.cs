@@ -30,10 +30,11 @@ namespace MultiSafepay.UnitTests.Model
 
             // Assert
             Assert.AreEqual(@"{
-		                    ""notification_url"": null,
-		                    ""redirect_url"":null,
-		                    ""cancel_url"":null,
-		                    ""close_window"":true
+		                  ""notification_method"": ""GET"",
+                          ""notification_url"": null,
+                          ""redirect_url"": null,
+                          ""cancel_url"": null,
+                          ""close_window"": true
 	        }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }

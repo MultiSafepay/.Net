@@ -4,14 +4,22 @@ namespace MultiSafepay.Model
 {
     public class Customer
     {
-        [JsonProperty("company")]
-        public bool Company { get; set; }
         [JsonProperty("locale")]
         public string Locale { get; set; }
         [JsonProperty("ip_address")]
         public string IpAddress { get; set; }
         [JsonProperty("forwarded_ip")]
         public string ForwardedIp { get; set; }
+        [JsonProperty("referrer")]
+        public string Referrer{ get; set; }
+        [JsonProperty("user_agent")]
+        public string UserAgent { get; set; }
+
+        [JsonProperty("company")]
+        public bool Company { get; set; }
+        [JsonProperty("company_name")]
+        public string CompanyName { get; set; }
+
         [JsonProperty("first_name")]
         public string FirstName { get; set; }
         [JsonProperty("last_name")]

@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace MultiSafepay.Model
 {
@@ -43,5 +44,19 @@ namespace MultiSafepay.Model
         public DeliveryAddress DeliveryAddress { get; set; }
         [JsonProperty("payment_details")]
         public PaymentDetails PaymentDetails { get; set; }
+        [JsonProperty("cancel_url")]
+        public string CancelUrl { get; set; }
+        [JsonProperty("shopping_cart")]
+        public ShoppingCartResponse ShoppingCart { get; set; }
+        [JsonProperty("costs")]
+        public IList<CostItems> Costs { get; set; }
+
+        //In common with redirect PaymentLink class
+        [JsonProperty("payment_url")]
+        public string PaymentUrl { get; set; }
+        [JsonProperty("html_form")]
+        public string HtmlForm { get; set; }
+        [JsonProperty("custom_info")]
+        public dynamic CustomInfo { get; set; }
     }
 }

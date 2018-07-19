@@ -20,10 +20,13 @@ namespace MultiSafepay.UnitTests.Model
 
             // Assert
             Assert.AreEqual(@"{
-                                ""company"": false,
-		                        ""locale"": null,
+                                 ""locale"": null,
 		                        ""ip_address"": null,
 		                        ""forwarded_ip"": null,
+		                        ""referrer"": null,
+		                        ""user_agent"": null,
+								""company"": false,
+		                        ""company_name"": null,
 		                        ""first_name"": null,
 		                        ""last_name"": null,
 		                        ""address1"": null,

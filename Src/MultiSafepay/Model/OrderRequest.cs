@@ -4,7 +4,7 @@ using Newtonsoft.Json.Converters;
 
 namespace MultiSafepay.Model
 {
-    public class OrderRequest
+    public class OrderRequest : Order
     {
         private OrderRequest(OrderType type, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
         {
@@ -17,52 +17,20 @@ namespace MultiSafepay.Model
             CustomInfo = new ExpandoObject();
         }
 
-        [JsonProperty("type"), JsonConverter(typeof(StringEnumConverter))]
-        internal OrderType Type { get; private set; }
-        [JsonProperty("order_id")]
-        public string OrderId { get; set; }
-        [JsonProperty("recurring_id")]
-        public string RecurringId { get; set; }
-        [JsonProperty("currency")]
-        public string CurrencyCode { get; set; }
-        [JsonProperty("amount")]
-        public int AmountInCents { get; set; }
-        [JsonProperty("gateway")]
-        public string GatewayId { get; set; }
-        [JsonProperty("description")]
-        public string Description { get; set; }
-        [JsonProperty("var1")]
-        public string Var1 { get; set; }
-        [JsonProperty("var2")]
-        public string Var2 { get; set; }
-        [JsonProperty("var3")]
-        public string Var3 { get; set; }
-        [JsonProperty("custom_info")]
-        public dynamic CustomInfo { get; set; }
-        [JsonProperty("items")]
-        public string Items { get; set; }
-        [JsonProperty("manual")]
-        public string Manual { get; set; }
-        [JsonProperty("template_id")]
-        public string TemplateId { get; set; }
-        [JsonProperty("template")]
-        public Template Template { get; set; }
-        [JsonProperty("days_active")]
-        public string DaysActive { get; set; }
-        [JsonProperty("gateway_info")]
-        public GatewayInfo GatewayInfo { get; set; }
-        [JsonProperty("payment_options")]
-        public PaymentOptions PaymentOptions { get; set; }
-        [JsonProperty("customer")]
-        public Customer Customer { get; set; }
-        [JsonProperty("delivery")]
-        public DeliveryAddress DeliveryAddress { get; set; }
-        [JsonProperty("shopping_cart")]
-        public ShoppingCart ShoppingCart { get; set; }
-        [JsonProperty("checkout_options")]
-        public CheckoutOptions CheckoutOptions { get; set; }
-        [JsonProperty("custom_fields")]
-        public CustomField[] CustomFields { get; set; }
+        public static OrderRequest createDirect(string issuerId, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
+        {
+            return new OrderRequest(
+                OrderType.Direct,
+                orderId,
+                description,
+                amountInCents,
+                currencyCode,
+                paymentOptions)
+            {
+                GatewayId   = "iDEAL",
+                GatewayInfo = GatewayInfo.IDeal(issuerId)
+            };
+        }
 
         public static OrderRequest CreateDirectIdeal(string issuerId, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
         {

@@ -23,7 +23,8 @@ namespace MultiSafepay.UnitTests.Model
 				""tax_tables"": null,
 				""shipping_methods"": null,
 				""rounding_policy"": null,
-                ""no_shipping_method"": false
+                ""no_shipping_method"": false,
+                ""use_shipping_notification"": false
 			}".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }

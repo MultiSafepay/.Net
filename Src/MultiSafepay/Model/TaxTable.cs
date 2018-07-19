@@ -8,6 +8,8 @@ namespace MultiSafepay.Model
         public string Name { get; set; }
         [JsonProperty("shipping_taxed")]
         public bool ShippingTaxed { get; set; }
+        [JsonProperty("rate")]
+        public float Rate { get; set; }
         [JsonProperty("rules")]
         public TaxRateRule[] Rules { get; set; }
         [JsonProperty("standalone")]

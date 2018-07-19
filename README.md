@@ -19,6 +19,32 @@ Install-Package MultiSafepay
 
 #### Example
 ```
-var client = new MultiSafepayClient("API_KEY", "https://api.multisafepay.com/v1/json/");
+var client = new MultiSafepayClient("API_KEY", "https://testapi.multisafepay.com/v1/json/");
 var gateways = client.GetGateways(null, "EUR");
+```
+
+#### Example - Order CustomOrder
+```
+var client = new MultiSafepayClient("API_KEY", "https://testapi.multisafepay.com/v1/json/");
+var order = new Order
+            {
+                Type = OrderType.Redirect,
+                OrderId = Guid.NewGuid().ToString(),
+                GatewayId = "IDEAL",
+                AmountInCents = 1066,
+                CurrencyCode = "EUR",
+                Description = ".Net wrapper test",
+                PaymentOptions = new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"),
+                Customer = new Customer()
+                {
+                    FirstName = "First Name",
+                    LastName = "Last Name",
+                    Country = "NL",
+                    Locale = "EN",
+                    Email = "test@multisafepay.com"
+                }
+            };
+
+            // Act
+            var result = client.CustomOrder(order);
 ```

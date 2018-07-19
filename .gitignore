@@ -162,3 +162,6 @@ Tests/MultiSafepay.UnitTests/bin/
 Src/MultiSafepay/obj/
 Tests/MultiSafepay.IntegrationTests/bin/
 Tests/MultiSafepay.IntegrationTests/obj/
+/Src/MultiSafepay/.vs
+/Src/.vs
+/Src/.vs

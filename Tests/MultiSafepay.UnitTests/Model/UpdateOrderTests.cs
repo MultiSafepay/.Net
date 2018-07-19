@@ -22,11 +22,14 @@ namespace MultiSafepay.UnitTests.Model
             // Assert
             Assert.AreEqual(@"{
 		                        ""invoice_id"": null,
-		                        ""type"": null,
-		                        ""currency"": null,
+                                ""invoice_url"": null,
+                                ""type"": null,
+                                ""currency"": null,
                                 ""description"": null,
                                 ""tracktrace_code"": null,
+                                ""tracktrace_url"": null,
                                 ""carrier"": null,
+                                ""po_number"": null,
                                 ""reason"": null
 	        }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
@@ -47,13 +50,16 @@ namespace MultiSafepay.UnitTests.Model
             // Assert
             Assert.AreEqual(@"{
 		                        ""invoice_id"": null,
-		                        ""type"": null,
+                                ""invoice_url"": null,
+                                ""type"": null,
                                 ""amount"": 1,
-		                        ""currency"": null,
+                                ""currency"": null,
                                 ""description"": null,
                                 ""tracktrace_code"": null,
+                                ""tracktrace_url"": null,
                                 ""carrier"": null,
                                 ""ship_date"": ""1990-01-01T00:00:00"",
+                                ""po_number"": null,
                                 ""reason"": null
 	        }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }

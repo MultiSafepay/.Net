@@ -7,6 +7,8 @@ namespace MultiSafepay.Model
     {
         [JsonProperty("invoice_id")]
         public string InvoiceId { get; set; }
+        [JsonProperty("invoice_url")]
+        public string InvoiceUrl { get; set; }
         [JsonProperty("type")]
         public string Type { get; set; }
         [JsonProperty("amount", DefaultValueHandling=DefaultValueHandling.Ignore) ]
@@ -16,12 +18,17 @@ namespace MultiSafepay.Model
         [JsonProperty("description")]
         public string Description { get; set; }
         [JsonProperty("tracktrace_code")]
-        public string TrackingCode   { get; set; }
+        public string TrackingCode { get; set; }
+        [JsonProperty("tracktrace_url")]
+        public string TrackTraceUrl { get; set; }
         [JsonProperty("carrier")]
         public string Carrier { get; set; }
         [JsonProperty("ship_date", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public DateTime ShippingDate { get; set; }
+        [JsonProperty("po_number")]
+        public string PoNumber { get; set; }
         [JsonProperty("reason")]
         public string Memo { get; set; }
+        
     }
 }

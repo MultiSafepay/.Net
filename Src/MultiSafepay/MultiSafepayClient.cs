@@ -30,8 +30,14 @@ namespace MultiSafepay
             
             _urlProvider = new UrlProvider(apiUrl, languageCode);
         }
-
-
+        /// <summary>
+        /// Helper - returns an object as Json string
+        /// </summary>
+        /// <param name="obj"></param>
+        public String serializeObject(dynamic obj)
+        {
+            return JsonConvert.SerializeObject(obj, Formatting.Indented);
+        }
 
         #region API Methods
 
@@ -72,6 +78,17 @@ namespace MultiSafepay
         {
             var response = DoRequest<OrderResponse>(_urlProvider.OrderUrl(orderId));
             return response == null ? null : response.Data;
+        }
+
+        /// <summary>
+        /// Create a generic order
+        /// </summary>
+        /// <param name="orderRequest">OrderRequest object populated with the order details</param>
+        /// <returns>The payment link to redirect the customer too</returns>
+        public OrderResponse CustomOrder(Order order)
+        {
+            var response = DoRequest<OrderResponse>(_urlProvider.OrdersUrl(), order);
+            return response.Data;
         }
 
         /// <summary>

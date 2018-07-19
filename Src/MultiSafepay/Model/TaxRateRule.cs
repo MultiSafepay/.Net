@@ -8,5 +8,7 @@ namespace MultiSafepay.Model
         public double Rate { get; set;  }
         [JsonProperty("country")]
         public string Country { get; set; }
+        [JsonProperty("world_area")]
+        public bool WorldArea { get; set; }
     }
 }

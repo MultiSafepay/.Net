@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace MultiSafepay.Model
 {
@@ -16,7 +17,9 @@ namespace MultiSafepay.Model
             SuccessRedirectUrl = successRedirectUrl;
             CancelRedirectUrl = cancelRedirectUrl;
         }
-
+       
+        [JsonProperty("notification_method"), JsonConverter(typeof(StringEnumConverter))]
+        internal NotificationMethod NotificationMethod { get; private set; }
         [JsonProperty("notification_url")]
 		public string NotificationUrl { get; set; }
         [JsonProperty("redirect_url")]

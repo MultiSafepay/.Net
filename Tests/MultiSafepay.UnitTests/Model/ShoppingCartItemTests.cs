@@ -21,13 +21,16 @@ namespace MultiSafepay.UnitTests.Model
             // Assert
             Assert.AreEqual(@"{
 				""name"": null,
-				""description"": null,
-				""unit_price"": 0.0,
+                ""description"": null,
+                ""unit_price"": 0.0,
                 ""currency"": ""EUR"",
-				""quantity"": 0,
-				""merchant_item_id"": null,
-				""tax_table_selector"": null,
-				""weight"": null
+                ""quantity"": 0,
+                ""merchant_item_id"": null,
+                ""tax_table_selector"": null,
+                ""cashback"": null,
+                ""image"": null,
+                ""product_url"": null,
+                ""weight"": null
 			}".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }

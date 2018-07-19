@@ -2,13 +2,15 @@
 
 namespace MultiSafepay.Model
 {
-    internal enum OrderType
+    public enum OrderType
     {
         [EnumMember(Value = "direct")]
         Direct,
         [EnumMember(Value = "redirect")]
         Redirect,
         [EnumMember(Value = "checkout")]
-        FastCheckout
+        FastCheckout,
+        [EnumMember(Value = "paymentlink")]
+        PaymentLink
     }
 }

@@ -3,9 +3,9 @@ using Newtonsoft.Json;
 
 namespace MultiSafepay.Model
 {
-    public class ShoppingCart
+    public class ShoppingCartResponse
     {
         [JsonProperty("items")]
-        public IList<ShoppingCartItem> Items { get; set; }
+        public IList<ShoppingCartItemObject> Items { get; set; }
     }
 }

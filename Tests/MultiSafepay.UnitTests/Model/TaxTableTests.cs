@@ -23,8 +23,9 @@ namespace MultiSafepay.UnitTests.Model
             Assert.AreEqual(@"{
 				""name"": null,
                 ""shipping_taxed"": false,
+                ""rate"": 0.0,
                 ""rules"": null,
-				""standalone"": false
+                ""standalone"": false
 			}".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }

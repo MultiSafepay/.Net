@@ -22,7 +22,7 @@ namespace MultiSafepay.UnitTests.Model
             // Assert
             Assert.AreEqual(@"{
 				""unit"": null,
-				""value"": 0.0
+				""value"": null
 			}".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
     }

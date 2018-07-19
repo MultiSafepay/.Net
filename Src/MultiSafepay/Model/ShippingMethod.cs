@@ -17,6 +17,12 @@ namespace MultiSafepay.Model
         public double Price { get; set; }
         [JsonProperty("currency")]
         public string CurrencyCode { get; set; }
+        [JsonProperty("id")]
+        public string Id { get; set; }
+        [JsonProperty("type")]
+        public string Type { get; set; }
+        [JsonProperty("provider")]
+        public string Provider { get; set; }
         [JsonProperty("allowed_areas")]
         public string[] AllowedAreas { get; set; }
         [JsonProperty("excluded_areas")]
