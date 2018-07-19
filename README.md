@@ -45,6 +45,6 @@ var order = new Order
                 }
             };
 
-            // Act
-            var result = client.CustomOrder(order);
+var result = client.CustomOrder(order);
+
 ```
