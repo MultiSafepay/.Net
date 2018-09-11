@@ -23,6 +23,9 @@ namespace MultiSafepay
 
         public MultiSafepayClient(string apiKey, string apiUrl = "https://api.multisafepay.com/v1/json/", string languageCode = null)
         {
+            //DNTMINT-17 - Target 4.0 - Support Tls 1.0, 1.1, 1.2 FIX
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)192 | (SecurityProtocolType)768 | (SecurityProtocolType)3072;
+            
             _client = new WebClient();
             _client.Headers["api_key"] = apiKey;
             _client.Headers[HttpRequestHeader.ContentType] = "application/json";
