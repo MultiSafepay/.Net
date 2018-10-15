@@ -11,6 +11,6 @@ namespace MultiSafepay.Model
         [JsonProperty("fixed")]
         public int @fixed { get; set; }
         [JsonProperty("description")]
-        public int description { get; set; }
+        public string description { get; set; }
     }
 }
