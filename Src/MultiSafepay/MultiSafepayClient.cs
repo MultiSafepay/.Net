@@ -3,11 +3,13 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using MultiSafepay.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
+[assembly: InternalsVisibleTo("MultiSafepay.UnitTests")]
 namespace MultiSafepay
 {
     /// <summary>
