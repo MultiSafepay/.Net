@@ -107,14 +107,25 @@ namespace MultiSafepay.Model
             };
         }
 
-        public static GatewayInfo Klarna(DateTime birthday, string gender, string phone, string email)
+        public static GatewayInfo Klarna(DateTime? birthday, string gender, string phone, string email)
         {
             return new GatewayInfo
             {
                 Birthday = birthday,
                 Gender = gender,
                 Phone = phone,
-                Email = email,
+                Email = email
+            };
+        }
+
+        public static GatewayInfo AfterPay(DateTime? birthday, string gender, string phone, string email)
+        {
+            return new GatewayInfo
+            {
+                Birthday = birthday,
+                Gender = gender,
+                Phone = phone,
+                Email = email
             };
         }
     }
