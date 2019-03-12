@@ -64,6 +64,7 @@
     <Compile Include="Gateways\GetGateways.cs" />
     <Compile Include="Issuers\GetIssuers.cs" />
     <Compile Include="CustomRequests\Ideal.cs" />
+    <Compile Include="Orders\AfterPayOrder.cs" />
     <Compile Include="Orders\KlarnaOrder.cs" />
     <Compile Include="Orders\DirectOrder.cs" />
     <Compile Include="Orders\EinvoiceOrder.cs" />
