@@ -21,15 +21,15 @@ Install-Package MultiSafepay
 
 ## Usage
 Setup the client for testing
-```
+```csharp
 var client = new MultiSafepayClient("API_KEY", "https://testapi.multisafepay.com/v1/json/");
 ```
 Get list of payment methods
-```
+```csharp
 var gateways = client.GetGateways(null, "EUR");
 ```
 Creating a test order
-```
+```csharp
 var client = new MultiSafepayClient("API_KEY", "https://testapi.multisafepay.com/v1/json/");
 var order = new Order
             {
