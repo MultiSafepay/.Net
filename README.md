@@ -1,29 +1,30 @@
-# .Net
-A .Net wrapper for the MultiSafepay payments API. Provides support for all payment methods, Pay After Delivery and Fast Checkout.
+<p align="center">
+  <img src="https://www.multisafepay.com/img/multisafepaylogo.svg" width="400px" position="center">
+</p>
+# .Net for the MultiSafepay API
+This wrapper simplifies working with the MultiSafepay API and allows you to integrate MultiSafepay within your .Net application.
 
-## Environments
-Test API - https://testapi.multisafepay.com/v1/json/
+## About MultiSafepay ##
+MultiSafepay is a collecting payment service provider which means we take care of the agreements, technical details and payment collection required for each payment method. You can start selling online today and manage all your transactions from one place.
 
-Live API - https://api.multisafepay.com/v1/json/
+## Requirements
+- To use the wrapper you need a MultiSafepay account. You can create a test account on https://testmerchant.multisafepay.com/signup
 
-## Api Reference
-https://www.multisafepay.com/documentation/doc/API-Reference/
-
-
-## Available on NuGet.
-https://www.nuget.org/packages/MultiSafepay/
+## Installation
+- Clone this git repository.
+- Also available on NuGet. https://www.nuget.org/packages/MultiSafepay/
 
 ```
 Install-Package MultiSafepay
 ```
 
-#### Example
+#### Usage
+Setup the client for testing
 ```
 var client = new MultiSafepayClient("API_KEY", "https://testapi.multisafepay.com/v1/json/");
 var gateways = client.GetGateways(null, "EUR");
 ```
-
-#### Example - Order CustomOrder
+Creating a test order
 ```
 var client = new MultiSafepayClient("API_KEY", "https://testapi.multisafepay.com/v1/json/");
 var order = new Order
@@ -46,5 +47,17 @@ var order = new Order
             };
 
 var result = client.CustomOrder(order);
-
 ```
+Click [here](https://github.com/MultiSafepay/.Net/tree/master/Tests/MultiSafepay.IntegrationTests) for more examples.
+
+## Support
+If you have any issues, problems or questions you can create an issue on this repository or contact us at <a href="mailto:techsupport@multisafepay.com">techsupport@multisafepay.com</a>
+
+## Mistakes and improvements 
+If you spot mistakes or want to contribute in improving this wrapper, feel free to [create pull requests](https://github.com/MultiSafepay/.Net/pulls)
+
+## API Documentation
+[Click here](https://docs.multisafepay.com/api/) for the MultiSafepay API documentation.
+
+## License
+[MIT License](https://github.com/MultiSafepay/.Net/blob/master/LICENSE.md)
