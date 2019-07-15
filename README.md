@@ -2,7 +2,7 @@
   <img src="https://www.multisafepay.com/img/multisafepaylogo.svg" width="400px" position="center">
 </p>
 
-# .Net for the MultiSafepay API #
+# .Net wrapper for the MultiSafepay API #
 This wrapper simplifies working with the MultiSafepay API and allows you to integrate MultiSafepay within your .Net application.
 
 ## About MultiSafepay ##
@@ -23,6 +23,9 @@ Install-Package MultiSafepay
 Setup the client for testing
 ```
 var client = new MultiSafepayClient("API_KEY", "https://testapi.multisafepay.com/v1/json/");
+```
+Get list of payment methods
+```
 var gateways = client.GetGateways(null, "EUR");
 ```
 Creating a test order
