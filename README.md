@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://www.multisafepay.com/img/multisafepaylogo.svg" width="400px" position="center">
 </p>
-# .Net for the MultiSafepay API
+# .Net for the MultiSafepay API #
 This wrapper simplifies working with the MultiSafepay API and allows you to integrate MultiSafepay within your .Net application.
 
 ## About MultiSafepay ##
@@ -18,7 +18,7 @@ MultiSafepay is a collecting payment service provider which means we take care o
 Install-Package MultiSafepay
 ```
 
-#### Usage
+## Usage
 Setup the client for testing
 ```
 var client = new MultiSafepayClient("API_KEY", "https://testapi.multisafepay.com/v1/json/");
@@ -60,4 +60,4 @@ If you spot mistakes or want to contribute in improving this wrapper, feel free 
 [Click here](https://docs.multisafepay.com/api/) for the MultiSafepay API documentation.
 
 ## License
-[MIT License](https://github.com/MultiSafepay/.Net/blob/master/LICENSE.md)
+[MIT License](https://github.com/MultiSafepay/.Net/blob/master/LICENSE)
