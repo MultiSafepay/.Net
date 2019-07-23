@@ -50,6 +50,8 @@ namespace MultiSafepay.Model
         public ShoppingCartResponse ShoppingCart { get; set; }
         [JsonProperty("costs")]
         public IList<CostItems> Costs { get; set; }
+        [JsonProperty("gateway_info")]
+        public GatewayInfoResponse GatewayInfo { get; set; }
 
         //In common with redirect PaymentLink class
         [JsonProperty("payment_url")]

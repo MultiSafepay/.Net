@@ -87,7 +87,7 @@ namespace MultiSafepay
         /// Create a generic order
         /// </summary>
         /// <param name="orderRequest">OrderRequest object populated with the order details</param>
-        /// <returns>The payment link to redirect the customer too</returns>
+        /// <returns>The payment link to redirect the customer and other variables for a direct transaction</returns>
         public OrderResponse CustomOrder(Order order)
         {
             var response = DoRequest<OrderResponse>(_urlProvider.OrdersUrl(), order);
@@ -102,6 +102,17 @@ namespace MultiSafepay
         public PaymentLink CreateOrder(OrderRequest orderRequest)
         {
             var response = DoRequest<PaymentLink>(_urlProvider.OrdersUrl(), orderRequest);
+            return response.Data;
+        }
+
+        /// <summary>
+        /// Create an order that will return full order structure
+        /// </summary>
+        /// <param name="orderRequest">OrderRequest object populated with the order details</param>
+        /// <returns>The payment link to redirect the customer and other variables for a direct transaction</returns>
+        public OrderResponse CreateOrderDirect(OrderRequest orderRequest)
+        {
+            var response = DoRequest<OrderResponse>(_urlProvider.OrdersUrl(), orderRequest);
             return response.Data;
         }
 

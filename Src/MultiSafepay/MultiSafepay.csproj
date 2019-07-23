@@ -44,6 +44,8 @@
     <Compile Include="Converter\JsonDateTimeConverter.cs" />
     <Compile Include="Model\Affiliate.cs" />
     <Compile Include="Model\CostItems.cs" />
+    <Compile Include="Model\GatewayInfo.cs" />
+    <Compile Include="Model\GatewayInfoResponse.cs" />
     <Compile Include="Model\ShoppingCartResponse.cs" />
     <Compile Include="Model\ShoppingCartItemObject.cs" />
     <Compile Include="Model\GoogleAnalytics.cs" />
@@ -60,7 +62,6 @@
     <Compile Include="Model\TemplateCart.cs" />
     <Compile Include="Model\TemplateContainer.cs" />
     <Compile Include="Model\TemplateHeader.cs" />
-    <Compile Include="Model\GatewayInfo.cs" />
     <Compile Include="Model\Issuer.cs" />
     <Compile Include="Model\Gateway.cs" />
     <Compile Include="Model\CheckoutOptions.cs" />
