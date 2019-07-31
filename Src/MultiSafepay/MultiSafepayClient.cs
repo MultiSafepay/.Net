@@ -245,17 +245,28 @@ namespace MultiSafepay
                     var reader = new StreamReader(ex.Response.GetResponseStream());
                     var response = reader.ReadToEnd();
                     Trace.WriteLine(response);
-
-                    var r = JsonConvert.DeserializeObject<ResponseMessage>(response);
-
-                    throw new MultiSafepayException(r.ErrorCode, r.ErrorInfo, ex);
+                    ResponseMessage r = null;
+                    try
+                    {
+                        r = JsonConvert.DeserializeObject<ResponseMessage>(response);
+                    }
+                    catch (JsonReaderException jex)
+                    {
+                        //Error reading / parsing JSON returned by server or wrongly provided url.
+                        throw new MultiSafepayException(9998,
+                            String.Format("{0}{1}{1}{2}", "Error deserializing JSON response.", Environment.NewLine, url), 
+                            jex);
+                    }
+                    finally
+                    {
+                        if (r != null) {
+                            throw new MultiSafepayException(r.ErrorCode, r.ErrorInfo, ex);
+                        }
+                    }
                 }
                 //No response from server, possible 404 or timeout
                 throw new MultiSafepayException(9999,
-                    String.Format("{0}{1}{1}{2}",
-                    "Error deserializing response. Possible error on server.",
-                    Environment.NewLine,
-                    url),
+                    String.Format("{0}{1}{1}{2}", "Error deserializing response. Possible error on server.", Environment.NewLine,url),
                     ex);
             }
         }
