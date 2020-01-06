@@ -13,8 +13,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         public void Orders_CreateFastCheckoutOrder()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
@@ -61,8 +61,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         [TestMethod]
         public void Orders_CreateFastCheckout_NoShippingMethod()
         {
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
@@ -93,8 +93,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         [TestMethod]
         public void Orders_CreateFastCheckout_ShippingMethodPickup()
         {
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
@@ -127,8 +127,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         [TestMethod]
         public void Orders_CreateFastCheckout_ForeignCurrency()
         {
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
@@ -161,8 +161,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         [TestMethod]
         public void Orders_CreateFastCheckout_CustomDefaultTaxTable()
         {
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
@@ -207,8 +207,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         [TestMethod]
         public void Orders_CreateFastCheckout_AlternateCustomTaxTable()
         {
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
@@ -267,8 +267,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         public void Orders_CreateFastCheckoutOrder_PredefinedCustomFields()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
@@ -315,8 +315,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         public void Orders_CreateFastCheckoutOrder_CustomField()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
@@ -354,8 +354,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         public void Orders_CreateFastCheckoutOrder_SetCustomerData()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 

@@ -11,8 +11,8 @@ namespace MultiSafepay.IntegrationTests.CustomRequests
         private static MultiSafepayClient Client { get; set; }
         private void setClient()
         {
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             Client = new MultiSafepayClient(apiKey, url);
         }
 

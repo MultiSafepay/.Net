@@ -10,8 +10,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         public void Orders_RetrieveOrder()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
@@ -27,8 +27,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         public void Orders_RetrieveOrderWithShoppingCart()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
@@ -45,8 +45,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         public void Orders_RetriveOrder_OrderNotFound()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act

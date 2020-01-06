@@ -1,10 +1,8 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime;
-using System.Runtime.Remoting;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MultiSafepay.Model;
 using Newtonsoft.Json;
+using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MultiSafepay.UnitTests.Model
 {

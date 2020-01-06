@@ -8,9 +8,10 @@ namespace MultiSafepay.Model
     {
         public static string ParseOrderId(string notificationUrl)
         {
-
-            var queryComponents = HttpUtility.ParseQueryString(notificationUrl);
-            return queryComponents.Keys != null && queryComponents.Keys.Contains("transactionid") ? null : null;
+            var uri = new Uri(notificationUrl);
+            var queryComponents = HttpUtility.ParseQueryString(uri.Query);
+            var value = queryComponents.Get("transactionid");
+            return value == string.Empty ? null : value;
         }
     }
 }

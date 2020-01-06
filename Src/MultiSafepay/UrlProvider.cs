@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 
 namespace MultiSafepay
@@ -36,9 +37,9 @@ namespace MultiSafepay
         {
             var queryStringComponents = new Dictionary<string, string>()
             {
-                {"country", HttpUtility.UrlEncode(countryCode)},
-                {"currency", HttpUtility.UrlEncode(currency)},
-                {"amount", amount.HasValue ? HttpUtility.UrlEncode(amount.ToString()) : null}
+                {"country", WebUtility.UrlEncode(countryCode)},
+                {"currency", WebUtility.UrlEncode(currency)},
+                {"amount", amount.HasValue ? WebUtility.UrlEncode(amount.ToString()) : null}
             }
                 .Where(x => !String.IsNullOrEmpty(x.Value));
 

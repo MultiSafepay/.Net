@@ -12,8 +12,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         public void Orders_CreateKlarnaOrder()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
