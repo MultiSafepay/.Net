@@ -13,8 +13,8 @@ namespace MultiSafepay.IntegrationTests
         {
             Trace.WriteLine("-------  Test run started  -------");
             Trace.WriteLine(DateTime.Now);
-            Trace.WriteLine("api: " + ConfigurationManager.AppSettings["MultiSafepayAPI"]);
-            Trace.WriteLine("api_key: " + ConfigurationManager.AppSettings["MultiSafepayAPIKey"]);
+            Trace.WriteLine("api: " + Settings.MultiSafePayUrl);
+            Trace.WriteLine("api_key: " + Settings.ApiKey);
             Trace.WriteLine(String.Empty);
         }
 

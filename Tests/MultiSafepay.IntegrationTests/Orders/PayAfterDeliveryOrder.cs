@@ -13,8 +13,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         public void Orders_CreatePayAfterDeliveryOrder()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
 
@@ -66,8 +66,8 @@ namespace MultiSafepay.IntegrationTests.Orders
         public void Orders_PayAfterDeliveryOrder_SetShippingStatus()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act

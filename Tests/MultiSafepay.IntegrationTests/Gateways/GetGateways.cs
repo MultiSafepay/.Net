@@ -10,8 +10,8 @@ namespace MultiSafepay.IntegrationTests.Gateways
         public void Gateways_GetGateways()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
@@ -25,8 +25,8 @@ namespace MultiSafepay.IntegrationTests.Gateways
         public void Gateways_GetGateways_Locale()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
@@ -40,8 +40,8 @@ namespace MultiSafepay.IntegrationTests.Gateways
         public void Gateways_GetGateways_RestrictCountry()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
@@ -55,8 +55,8 @@ namespace MultiSafepay.IntegrationTests.Gateways
         public void Gateways_GetGateways_RestrictCurrencyMethod()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
@@ -70,8 +70,8 @@ namespace MultiSafepay.IntegrationTests.Gateways
         public void Gateways_GetGateways_RestrictAmount()
         {
             // Arrange
-            var url = ConfigurationManager.AppSettings["MultiSafepayAPI"];
-            var apiKey = ConfigurationManager.AppSettings["MultiSafepayAPIKey"];
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
