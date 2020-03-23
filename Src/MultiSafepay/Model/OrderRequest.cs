@@ -62,6 +62,25 @@ namespace MultiSafepay.Model
             };
         }
 
+        public static OrderRequest CreateDirectIdealQR(GatewayInfo GatewayInfo, string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
+        {
+            return new OrderRequest(
+                OrderType.Redirect,//Also supported empty or OrderType.Direct
+                orderId,
+                description,
+                amountInCents,
+                currencyCode,
+                paymentOptions)
+            {
+                GatewayId = "IDEALQR",
+                GatewayInfo = GatewayInfo.IDealQR(
+                    GatewayInfo.QrSize, 
+                    GatewayInfo.MaxAmount, 
+                    GatewayInfo.AllowMultiple, 
+                    GatewayInfo.AllowChangeAmount)
+            };
+        }
+
         public static OrderRequest CreateRedirect(string orderId, string description, int amountInCents, string currencyCode, PaymentOptions paymentOptions)
         {
             return new OrderRequest(

@@ -12,6 +12,12 @@ namespace MultiSafepay.Model
         public string AccountId { get; set; }
         [JsonProperty("qr_size")]
         public int QrSize { get; set; }
+        [JsonProperty("max_amount")]
+        public Nullable<int> MaxAmount { get; set; }
+        [JsonProperty("allow_multiple")]
+        public Nullable<bool> AllowMultiple { get; set; }
+        [JsonProperty("allow_change_amount")]
+        public Nullable<bool> AllowChangeAmount { get; set; }
         [JsonProperty("account_holder_name")]
         public string AccountHolderName { get; set; }
         [JsonProperty("account_holder_city")]
@@ -74,11 +80,14 @@ namespace MultiSafepay.Model
                 IssuerId = issuerId
             };
         }
-        public static GatewayInfo IDealQR(int qrSize)
+        public static GatewayInfo IDealQR(int qrSize, Nullable<int> maxAmount = null, Nullable<bool> allowMultiple = null, Nullable<bool> allowChangeAmount = null)
         {
             return new GatewayInfo
             {
-                QrSize = qrSize
+                QrSize = qrSize,
+                AllowMultiple = allowMultiple,
+                MaxAmount = maxAmount,
+                AllowChangeAmount = allowChangeAmount
             };
         }
         public static GatewayInfo PayAfterDelivery(DateTime? birthday, string bankAccount, string phone, string email, string referrer, string userAgent)

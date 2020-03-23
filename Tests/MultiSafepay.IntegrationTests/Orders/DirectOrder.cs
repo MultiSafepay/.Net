@@ -51,6 +51,30 @@ namespace MultiSafepay.IntegrationTests.Orders
         }
 
         [TestMethod]
+        public void Orders_CreateDirectOrder_IDEALQRGatewayInfo()
+        {
+            // Arrange
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
+            var client = new MultiSafepayClient(apiKey, url);
+            var orderId = Guid.NewGuid().ToString();
+            var gatewayInfo = new GatewayInfo();
+            gatewayInfo.QrSize = 300;
+            gatewayInfo.MaxAmount = 100;
+            var orderRequest = OrderRequest.CreateDirectIdealQR(gatewayInfo, orderId, "product description", 1000, "EUR",
+                new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"));
+
+            // Act
+            var result = client.CreateOrder(orderRequest);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(orderRequest.OrderId, result.OrderId);
+            Assert.IsFalse(String.IsNullOrEmpty(result.QrUrl));
+
+        }
+
+        [TestMethod]
         public void Orders_CreateDirectOrder_BankTransfer()
         {
             // Arrange

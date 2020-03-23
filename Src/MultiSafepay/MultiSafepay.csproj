@@ -2,7 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.0</Version>
+    <Version>0.8.1</Version>
+    <PackageId>MultiSafepay</PackageId>
+    <Product>MultiSafepay Payments</Product>
+    <Authors>Jorge Sariego</Authors>
+    <PackageProjectUrl>https://github.com/MultiSafepay/.Net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MultiSafepay/.Net</RepositoryUrl>
+    <Description>A .NET client for the MultiSafepay payments API. Provides support for all payment methods, Pay After Delivery and Fast Checkout.</Description>
+    <PackageIcon>favicon.png</PackageIcon>
+    <PackageIconUrl />
+    <PackageReleaseNotes>- Release it as a .NET Standard 2.0 package</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +21,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\favicon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   
 </Project>
