@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.8.1</Version>
+    <Version>0.8.3</Version>
     <PackageId>MultiSafepay</PackageId>
     <Product>MultiSafepay Payments</Product>
     <Authors>Jorge Sariego</Authors>
@@ -11,7 +11,14 @@
     <Description>A .NET client for the MultiSafepay payments API. Provides support for all payment methods, Pay After Delivery and Fast Checkout.</Description>
     <PackageIcon>favicon.png</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>- Release it as a .NET Standard 2.0 package</PackageReleaseNotes>
+    <PackageReleaseNotes>Add IdealQr missing parameters [DNTMINT-27]
+min_amount
+in addition:
+max_amount
+allow_multiple
+allow_change_amount</PackageReleaseNotes>
+    <Company>MultiSafepay</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

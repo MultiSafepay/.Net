@@ -12,6 +12,8 @@ namespace MultiSafepay.Model
         public string AccountId { get; set; }
         [JsonProperty("qr_size")]
         public int QrSize { get; set; }
+        [JsonProperty("min_amount")]
+        public Nullable<int> MinAmount { get; set; }
         [JsonProperty("max_amount")]
         public Nullable<int> MaxAmount { get; set; }
         [JsonProperty("allow_multiple")]

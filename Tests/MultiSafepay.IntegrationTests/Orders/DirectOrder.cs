@@ -60,7 +60,8 @@ namespace MultiSafepay.IntegrationTests.Orders
             var orderId = Guid.NewGuid().ToString();
             var gatewayInfo = new GatewayInfo();
             gatewayInfo.QrSize = 300;
-            gatewayInfo.MaxAmount = 100;
+            gatewayInfo.MaxAmount = 1000;
+            gatewayInfo.MinAmount = 100;
             var orderRequest = OrderRequest.CreateDirectIdealQR(gatewayInfo, orderId, "product description", 1000, "EUR",
                 new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"));
 

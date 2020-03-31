@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSafepay", "MultiSafepay\MultiSafepay.csproj", "{3A798322-F2C6-4D67-8633-21C0B275ECC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSafepay.UnitTests", "..\Tests\MultiSafepay.UnitTests\MultiSafepay.UnitTests.csproj", "{FB0904F5-4B79-4B47-83C6-340764134439}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSafepay.UnitTests", "..\Tests\MultiSafepay.UnitTests\MultiSafepay.UnitTests.csproj", "{FB0904F5-4B79-4B47-83C6-340764134439}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSafepay.IntegrationTests", "..\Tests\MultiSafepay.IntegrationTests\MultiSafepay.IntegrationTests.csproj", "{903B2E2D-FE60-4500-BCDA-1B54074AC24C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiSafepay.IntegrationTests", "..\Tests\MultiSafepay.IntegrationTests\MultiSafepay.IntegrationTests.csproj", "{903B2E2D-FE60-4500-BCDA-1B54074AC24C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
