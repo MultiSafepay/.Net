@@ -2,7 +2,7 @@
 
 namespace MultiSafepay.Model
 {
-    internal enum NotificationMethod
+    public enum NotificationMethod
     {
         [EnumMember(Value = "GET")]
         GET,

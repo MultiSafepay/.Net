@@ -37,5 +37,25 @@ namespace MultiSafepay.UnitTests.Model
                           ""close_window"": true
 	        }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
         }
+
+        [TestMethod]
+        public void PaymentOptions_NotificationMethod_EnablePushNotification()
+        {
+            // Arrange
+            var paymentOptions = new PaymentOptions();
+            paymentOptions.NotificationMethod = NotificationMethod.POST;
+
+            // Act
+            var serializedObject = JsonConvert.SerializeObject(paymentOptions);
+
+            // Assert
+            Assert.AreEqual(@"{
+		                  ""notification_method"": ""POST"",
+                          ""notification_url"": null,
+                          ""redirect_url"": null,
+                          ""cancel_url"": null,
+                          ""close_window"": true
+	        }".RemoveWhiteSpace(), serializedObject.RemoveWhiteSpace());
+        }
     }
 }
