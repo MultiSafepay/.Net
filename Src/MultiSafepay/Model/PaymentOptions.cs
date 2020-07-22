@@ -19,7 +19,7 @@ namespace MultiSafepay.Model
         }
        
         [JsonProperty("notification_method"), JsonConverter(typeof(StringEnumConverter))]
-        internal NotificationMethod NotificationMethod { get; private set; }
+        public NotificationMethod NotificationMethod { get; set; }
         [JsonProperty("notification_url")]
 		public string NotificationUrl { get; set; }
         [JsonProperty("redirect_url")]
