@@ -62,5 +62,7 @@ namespace MultiSafepay.Model
         public GoogleAnalytics GoogleAnalytics { get; set; }
         [JsonProperty("custom_fields")]
         public CustomField[] CustomFields { get; set; }
+        [JsonProperty("capture")]
+        public string Capture { get; set; }
     }
 }

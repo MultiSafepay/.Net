@@ -89,6 +89,16 @@ namespace MultiSafepay
             return FormatLanguage(_baseUrl + "orders/" + orderId + "/refunds", _langaugeCode);
         }
 
+        public string OrderCaptureUrl(string orderId)
+        {
+            return FormatLanguage(_baseUrl + "orders/" + orderId + "/capture", _langaugeCode);
+        }
+
+        public string OrderVoidUrl(string orderId)
+        {
+            return FormatLanguage(_baseUrl + "capture/" + orderId, _langaugeCode);
+        }
+
         private string FormatLanguage(string baseUrl, string langaugeCode)
         {
             if (String.IsNullOrEmpty(langaugeCode))
