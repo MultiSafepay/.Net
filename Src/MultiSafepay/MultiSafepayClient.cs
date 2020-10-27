@@ -185,14 +185,16 @@ namespace MultiSafepay
         /// <param name="reason">Add a short text memo based on the capture reason of the order</param>
         /// <param name="carrier">The name of the shipping company delivering the customer’s order</param>
         /// <param name="memo">Add a short action text memo mentioning the shipping status of the order</param>
+        /// <param name="newOrderId">New order id in case of partial capture</param>
         /// <returns>Result of transaction</returns>
-        public CaptureResult CaptureOrder(string orderId, int amoutToCaptureInCents, string invoiceId, string reason, string carrier = null, string memo = null)
+        public CaptureResult CaptureOrder(string orderId, int amoutToCaptureInCents, string invoiceId, string reason, string newOrderId = null, string carrier = null, string memo = null)
         {
             var response = DoRequest<CaptureResult>(_urlProvider.OrderCaptureUrl(orderId),
                new CaptureRequest()
                {
                    Amount = amoutToCaptureInCents,
                    NewOrderStatus = "completed",
+                   NewOrderId = newOrderId,
                    InvoiceId = invoiceId,
                    Reason = reason,
                    Carrier = carrier,

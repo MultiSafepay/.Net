@@ -11,6 +11,8 @@ namespace MultiSafepay.Model
         public int Amount { get; set; }
         [JsonProperty("new_order_status")]
         public string NewOrderStatus { get; set; }
+        [JsonProperty("new_order_id")]
+        public string NewOrderId { get; set; }
         [JsonProperty("invoice_id")]
         public string InvoiceId { get; set; }
         [JsonProperty("carrier")]

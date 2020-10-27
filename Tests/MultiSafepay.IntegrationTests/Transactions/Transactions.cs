@@ -32,7 +32,7 @@ namespace MultiSafepay.IntegrationTests.Transactions
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var result = client.CaptureOrder("7a08cef4-1a5d-4c47-9822-0f120f96654a", 500, null, "Order Shipped");
+            var result = client.CaptureOrder("62756f57-f24d-403e-b6ed-3c53961dc801", 500, null, "Order Shipped");
 
             // Assert
             Assert.IsNotNull(result);
@@ -48,7 +48,7 @@ namespace MultiSafepay.IntegrationTests.Transactions
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var result = client.VoidOrder("a8048b53-5a5d-46f7-b69f-4a57bdd6f475", "Order Canceled");
+            var result = client.VoidOrder("62756f57-f24d-403e-b6ed-3c53961dc801", "Order Canceled");
 
             // Assert
             Assert.IsNotNull(result);
