@@ -12,6 +12,8 @@ namespace MultiSafepay.Model
         public string ForwardedIp { get; set; }
         [JsonProperty("referrer")]
         public string Referrer{ get; set; }
+        [JsonProperty("reference")]
+        public string Reference { get; set; }
         [JsonProperty("user_agent")]
         public string UserAgent { get; set; }
 

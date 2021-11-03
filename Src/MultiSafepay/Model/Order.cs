@@ -12,6 +12,8 @@ namespace MultiSafepay.Model
         public string OrderId { get; set; }
         [JsonProperty("recurring_id")]
         public string RecurringId { get; set; }
+        [JsonProperty("recurring_model")]
+        public RecurringModelType? RecurringModel { get; set; }
         [JsonProperty("currency")]
         public string CurrencyCode { get; set; }
         [JsonProperty("amount")]
