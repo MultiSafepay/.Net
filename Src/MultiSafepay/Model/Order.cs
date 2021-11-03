@@ -38,7 +38,7 @@ namespace MultiSafepay.Model
         public Template Template { get; set; }
         [JsonProperty("days_active")]
         public string DaysActive { get; set; } //@TODO - Set as int in future mayor version upgrade
-        [JsonProperty("seconds_active ")]
+        [JsonProperty("seconds_active")]
         public int SecondsActive { get; set; }
         [JsonProperty("payment_options")]
         public PaymentOptions PaymentOptions { get; set; }
