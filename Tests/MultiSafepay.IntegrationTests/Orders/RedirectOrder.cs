@@ -43,7 +43,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             {
                 Locale = "it_IT",
                 Country = "IT",
-                Reference = "ilguala1"
+                Reference = "test1"
             };
 
             orderRequest.RecurringModel = RecurringModelType.cardOnFile;

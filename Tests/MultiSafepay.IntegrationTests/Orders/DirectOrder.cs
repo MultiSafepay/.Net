@@ -160,12 +160,12 @@ namespace MultiSafepay.IntegrationTests.Orders
             var apiKey = Settings.ApiKey;
             var client = new MultiSafepayClient(apiKey, url);
             var orderId = Guid.NewGuid().ToString();
-            var orderRequest = OrderRequest.CreateRecurring("iF7w_1oSfII", orderId, "product description", 500, "EUR",
+            var orderRequest = OrderRequest.CreateRecurring("token", orderId, "product description", 500, "EUR",
                 new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"));
 
             orderRequest.Customer = new Customer()
             {
-                Reference = "ilguala1"
+                Reference = "test1"
             };
 
             // Act

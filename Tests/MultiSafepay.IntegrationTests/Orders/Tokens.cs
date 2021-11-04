@@ -17,7 +17,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var result = client.GetCustomerTokens("ilguala1");
+            var result = client.GetCustomerTokens("test1");
 
             // Assert
             Assert.IsNotNull(result.Tokens);
