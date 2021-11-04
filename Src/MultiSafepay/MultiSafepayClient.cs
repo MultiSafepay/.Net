@@ -220,6 +220,16 @@ namespace MultiSafepay
             return response.Data;
         }
 
+        /// <summary>
+        /// Get all customer tokens
+        /// </summary>
+        /// <param name="customerReference">Customer unique identifier</param>
+        /// <returns>Tokens with all customer payments saved information</returns>
+        public TokenResponse GetCustomerTokens(string customerReference)
+        {
+            var response = DoRequest<TokenResponse>(_urlProvider.CustomerTokensUrl(customerReference));
+            return response.Data;
+        }
         #endregion
 
         #region Private Helpers

@@ -4,10 +4,8 @@ using System.Text;
 
 namespace MultiSafepay.Model
 {
-    public enum RecurringModelType
+    public class TokenResponse
     {
-        cardOnFile,
-        subscription,
-        unscheduled
+        public TokenData[] Tokens { get; set; }
     }
 }

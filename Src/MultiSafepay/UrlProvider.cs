@@ -99,6 +99,11 @@ namespace MultiSafepay
             return FormatLanguage(_baseUrl + "capture/" + orderId, _langaugeCode);
         }
 
+        public string CustomerTokensUrl(string customerReference)
+        {
+            return FormatLanguage(_baseUrl + "recurring/" + customerReference, _langaugeCode);
+        }
+
         private string FormatLanguage(string baseUrl, string langaugeCode)
         {
             if (String.IsNullOrEmpty(langaugeCode))

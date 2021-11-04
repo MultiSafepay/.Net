@@ -29,6 +29,35 @@ namespace MultiSafepay.IntegrationTests.Orders
         }
 
         [TestMethod]
+        public void Orders_CreateRedirectWithRecurring()
+        {
+            // Arrange
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
+            var client = new MultiSafepayClient(apiKey, url);
+            var orderId = Guid.NewGuid().ToString();
+            var orderRequest = OrderRequest.CreateRedirect(orderId, "product description", 1000, "EUR",
+                new PaymentOptions("http://example.com/notify", "http://example.com/success", "http://example.com/failed"));
+
+            orderRequest.Customer = new Customer()
+            {
+                Locale = "it_IT",
+                Country = "IT",
+                Reference = "ilguala1"
+            };
+
+            orderRequest.RecurringModel = RecurringModelType.cardOnFile;
+
+            // Act
+            var result = client.CreateOrder(orderRequest);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(orderRequest.OrderId, result.OrderId);
+            Assert.IsFalse(String.IsNullOrEmpty(result.PaymentUrl));
+        }
+
+        [TestMethod]
         public void Orders_CreateRedirectWithTemplate()
         {
             // Arrange
