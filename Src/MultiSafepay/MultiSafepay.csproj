@@ -31,7 +31,7 @@ allow_change_amount</PackageReleaseNotes>
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\favicon.png">
+    <None Include="favicon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

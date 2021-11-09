@@ -230,6 +230,17 @@ namespace MultiSafepay
             var response = DoRequest<TokenResponse>(_urlProvider.CustomerTokensUrl(customerReference));
             return response.Data;
         }
+
+        /// <summary>
+        /// Delete payment token
+        /// </summary>
+        /// <param name="customerReference"></param>
+        /// <returns></returns>
+        public TokenDeleteResponse DeleteToken(string customerReference, string token)
+        {
+            var response = DoRequest<TokenDeleteResponse>(_urlProvider.DeleteTokenUrl(customerReference, token), new { }, "DELETE");
+            return response.Data;
+        }
         #endregion
 
         #region Private Helpers
