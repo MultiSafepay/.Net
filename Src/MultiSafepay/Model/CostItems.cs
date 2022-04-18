@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace MultiSafepay.Model
 {
@@ -12,5 +13,7 @@ namespace MultiSafepay.Model
         public string Type { get; set; }
         [JsonProperty("amount")]
         public double Amount { get; set; }
+        [JsonProperty("created")]
+        public DateTime? CreatedDate { get; set; }
     }
 }
