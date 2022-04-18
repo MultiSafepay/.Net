@@ -12,6 +12,9 @@ namespace MultiSafepay.Model
         public string OrderId { get; set; }
         [JsonProperty("recurring_id")]
         public string RecurringId { get; set; }
+        [JsonProperty("recurring_model")]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public RecurringModelType? RecurringModel { get; set; }
         [JsonProperty("currency")]
         public string CurrencyCode { get; set; }
         [JsonProperty("amount")]
@@ -62,5 +65,7 @@ namespace MultiSafepay.Model
         public GoogleAnalytics GoogleAnalytics { get; set; }
         [JsonProperty("custom_fields")]
         public CustomField[] CustomFields { get; set; }
+        [JsonProperty("capture")]
+        public string Capture { get; set; }
     }
 }

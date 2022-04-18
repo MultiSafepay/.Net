@@ -176,6 +176,71 @@ namespace MultiSafepay
             return new SimpleResult() { Success = response.Success };
         }
 
+        /// <summary>
+        /// Do a partial/full capture of an order
+        /// </summary>
+        /// <param name="orderId">Inique identifier of the order</param>
+        /// <param name="amoutToCaptureInCents">The amount (in cents) that the customer needs to pay.</param>
+        /// <param name="invoiceId">Update an existing order with a reference to your internal invoice id. The invoice id will be added to financial reports and exports generated within MultiSafepay Control (max. 50 chars)</param>
+        /// <param name="reason">Add a short text memo based on the capture reason of the order</param>
+        /// <param name="carrier">The name of the shipping company delivering the customer’s order</param>
+        /// <param name="memo">Add a short action text memo mentioning the shipping status of the order</param>
+        /// <param name="newOrderId">New order id in case of partial capture</param>
+        /// <returns>Result of transaction</returns>
+        public CaptureResult CaptureOrder(string orderId, int amoutToCaptureInCents, string invoiceId, string reason, string newOrderId = null, string carrier = null, string memo = null)
+        {
+            var response = DoRequest<CaptureResult>(_urlProvider.OrderCaptureUrl(orderId),
+               new CaptureRequest()
+               {
+                   Amount = amoutToCaptureInCents,
+                   NewOrderStatus = "completed",
+                   NewOrderId = newOrderId,
+                   InvoiceId = invoiceId,
+                   Reason = reason,
+                   Carrier = carrier,
+                   Memo = memo
+               }, "POST");
+            return response.Data;
+        }
+
+        /// <summary>
+        /// Void Authorization/Reservation of an order
+        /// </summary>
+        /// <param name="orderId">The unique identifier from your system for the order. If the values are only numbers the type will be integer, otherwise it will be string. Required. Max 50 char</param>
+        /// <param name="reason">Add a short text memo based on the void reason of the order</param>
+        /// <returns>Result of transaction</returns>
+        public SimpleResult VoidOrder (string orderId, string reason)
+        {
+            var response = DoRequest<SimpleResult>(_urlProvider.OrderVoidUrl(orderId),
+              new VoidRequest()
+              {
+                  Reason = reason,
+                  Status = "cancelled",
+              }, "PATCH");
+            return response.Data;
+        }
+
+        /// <summary>
+        /// Get all customer tokens
+        /// </summary>
+        /// <param name="customerReference">Customer unique identifier</param>
+        /// <returns>Tokens with all customer payments saved information</returns>
+        public TokenResponse GetCustomerTokens(string customerReference)
+        {
+            var response = DoRequest<TokenResponse>(_urlProvider.CustomerTokensUrl(customerReference));
+            return response.Data;
+        }
+
+        /// <summary>
+        /// Delete payment token
+        /// </summary>
+        /// <param name="customerReference"></param>
+        /// <returns></returns>
+        public TokenDeleteResponse DeleteToken(string customerReference, string token)
+        {
+            var response = DoRequest<TokenDeleteResponse>(_urlProvider.DeleteTokenUrl(customerReference, token), new { }, "DELETE");
+            return response.Data;
+        }
         #endregion
 
         #region Private Helpers

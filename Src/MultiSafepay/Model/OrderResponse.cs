@@ -60,5 +60,10 @@ namespace MultiSafepay.Model
         public string HtmlForm { get; set; }
         [JsonProperty("custom_info")]
         public dynamic CustomInfo { get; set; }
+
+        [JsonProperty("reason")]
+        public string Reason { get; set; }
+        [JsonProperty("reason_code")]
+        public string ReasonCode { get; set; }
     }
 }
