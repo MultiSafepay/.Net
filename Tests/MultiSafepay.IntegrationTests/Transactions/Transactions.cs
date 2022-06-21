@@ -21,6 +21,7 @@ namespace MultiSafepay.IntegrationTests.Transactions
             // Assert
             Assert.IsNotNull(result);
             Assert.IsFalse(String.IsNullOrEmpty(result.TransactionId));
+            Assert.IsFalse(String.IsNullOrEmpty(result.RefundId));
         }
 
         [TestMethod]
