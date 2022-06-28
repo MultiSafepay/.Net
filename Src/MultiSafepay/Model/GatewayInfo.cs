@@ -74,6 +74,10 @@ namespace MultiSafepay.Model
         public string ActionOnDeclined { get; set; }
         [JsonProperty("company_type")]
         public string CompanyType { get; set; }
+        [JsonProperty("moto")]
+        public Nullable<bool> Moto { get; set; }
+        [JsonProperty("payment_token")]
+        public string PaymentToken { get; set; }
 
         public static GatewayInfo IDeal(string issuerId)
         {
