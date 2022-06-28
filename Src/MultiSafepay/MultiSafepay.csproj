@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.8.6</Version>
+    <Version>0.8.7</Version>
     <PackageId>MultiSafepay</PackageId>
     <Product>MultiSafepay Payments</Product>
     <Authors>Jorge Sariego</Authors>
@@ -12,11 +12,12 @@
     <PackageIcon>favicon.png</PackageIcon>
     <PackageIconUrl />
     <PackageReleaseNotes>Added Support for:
-refund_id in refund response
+moto
+payment_token
 </PackageReleaseNotes>
     <Company>MultiSafepay</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.8.5.0</AssemblyVersion>
+    <AssemblyVersion>0.8.7.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
