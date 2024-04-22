@@ -6,7 +6,7 @@ namespace MultiSafepay.Model
     public class CostItems
     {
         [JsonProperty("transaction_id")]
-        public int TransactionId { get; set; }
+        public string TransactionId { get; set; }
         [JsonProperty("description")]
         public string Description { get; set; }
         [JsonProperty("type")]
