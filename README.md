@@ -1,34 +1,33 @@
 <p align="center">
-  <img src="https://www.multisafepay.com/img/multisafepaylogo.svg" width="400px" position="center">
+    <img src="https://camo.githubusercontent.com/517483ae0eaba9884f397e9af1c4adc7bbc231575ac66cc54292e00400edcd10/68747470733a2f2f7777772e6d756c7469736166657061792e636f6d2f66696c6561646d696e2f74656d706c6174652f696d672f6d756c7469736166657061792d6c6f676f2d69636f6e2e737667" width="400px" position="center">
 </p>
 
-# .Net wrapper for the MultiSafepay API #
-This wrapper simplifies working with the MultiSafepay API and allows you to integrate MultiSafepay within your .Net application.
+# .Net wrapper for the MultiSafepay API
+This wrapper simplifies working with the MultiSafepay API and lets you integrate MultiSafepay in your .Net application.
 
-## About MultiSafepay ##
-MultiSafepay is a collecting payment service provider which means we take care of the agreements, technical details and payment collection required for each payment method. You can start selling online today and manage all your transactions from one place.
+## About MultiSafepay
+MultiSafepay is a Dutch payment service provider, which takes care of contracts, processing transations, and collecting payment for a range of local and international payment methods. Start selling online today and manage all your transactions in one place!
 
 ## Requirements
-- To use the wrapper you need a MultiSafepay account. You can create a test account on https://testmerchant.multisafepay.com/signup
+You will need a MultiSafepay account. Consider [creating a test account](https://testmerchant.multisafepay.com/signup) first. 
 
 ## Installation
-- Clone this git repository.
-- Also available on NuGet. https://www.nuget.org/packages/MultiSafepay/
+Clone this git repository. (Also available on [NuGet](https://www.nuget.org/packages/MultiSafepay/)).
 
 ```
 Install-Package MultiSafepay
 ```
 
 ## Usage
-Setup the client for testing
+Set up the client for testing:
 ```csharp
 var client = new MultiSafepayClient("API_KEY", "https://testapi.multisafepay.com/v1/json/");
 ```
-Get list of payment methods
+Get a list of payment methods:
 ```csharp
 var gateways = client.GetGateways(null, "EUR");
 ```
-Creating a test order
+Create a test order:
 ```csharp
 var client = new MultiSafepayClient("API_KEY", "https://testapi.multisafepay.com/v1/json/");
 var order = new Order
@@ -52,16 +51,16 @@ var order = new Order
 
 var result = client.CustomOrder(order);
 ```
-Click [here](https://github.com/MultiSafepay/.Net/tree/master/Tests/MultiSafepay.IntegrationTests) for more examples.
+See [more examples](https://github.com/MultiSafepay/.Net/tree/master/Tests/MultiSafepay.IntegrationTests).
 
 ## Support
-If you have any issues, problems or questions you can create an issue on this repository or contact us at <a href="mailto:integration@multisafepay.com">integration@multisafepay.com</a>
+Create an issue on this repository or email <a href="mailto:integration@multisafepay.com">integration@multisafepay.com</a>
 
-## Mistakes and improvements 
-If you spot mistakes or want to contribute in improving this wrapper, feel free to [create pull requests](https://github.com/MultiSafepay/.Net/pulls)
+## Contributions 
+Feel free to [create pull requests](https://github.com/MultiSafepay/.Net/pulls) on this repository to suggest improvements.
 
-## API Documentation
-[Click here](https://docs.multisafepay.com/api/) for the MultiSafepay API documentation.
+## API reference
+See MultiSafepay Docs – [API reference](https://docs.multisafepay.com/api/).
 
 ## License
 [MIT License](https://github.com/MultiSafepay/.Net/blob/master/LICENSE)
