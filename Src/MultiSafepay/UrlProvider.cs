@@ -31,6 +31,41 @@ namespace MultiSafepay
             _langaugeCode = languageCode;
         }
 
+        public string PaymentMethodsUrl(
+            string countryCode = null, 
+            string currency = null, 
+            int? amount = null, 
+            int? includeCoupons = null, 
+            int? groupCards = null, 
+            string application = null
+            )
+        {
+            var queryStringComponents = new Dictionary<string, string>()
+            {
+                {"country", WebUtility.UrlEncode(countryCode)},
+                {"include_coupons", amount.HasValue ? WebUtility.UrlEncode(includeCoupons.ToString()) : null},
+                {"group_cards", amount.HasValue ? WebUtility.UrlEncode(groupCards.ToString()) : null},
+                {"currency", WebUtility.UrlEncode(currency)},
+                {"application", WebUtility.UrlEncode(application)},
+                {"amount", amount.HasValue ? WebUtility.UrlEncode(amount.ToString()) : null}
+            }
+                .Where(x => !String.IsNullOrEmpty(x.Value));
+
+            var queryString = String.Join("&", queryStringComponents.Select(x => String.Format("{0}={1}", x.Key, x.Value)));
+
+
+            if (!String.IsNullOrEmpty(queryString))
+            {
+                return FormatLanguage(_baseUrl + "payment-methods?" + queryString, _langaugeCode);
+            }
+
+            return FormatLanguage(_baseUrl + "payment-methods", _langaugeCode);
+        }
+
+        public string PaymentMethodUrl(string methodId)
+        {
+            return FormatLanguage(_baseUrl + "payment-methods/" + methodId, _langaugeCode);
+        }
 
         public string GatewaysUrl(string countryCode = null, string currency = null, int? amount = null)
         {

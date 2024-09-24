@@ -1,29 +1,34 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace MultiSafepay.Model
 {
-    public class Customer
+    public class CustomerBrowser
     {
-        [JsonProperty("locale")]
-        public string Locale { get; set; }
         [JsonProperty("ip_address")]
         public string IpAddress { get; set; }
-        [JsonProperty("forwarded_ip")]
-        public string ForwardedIp { get; set; }
-        [JsonProperty("referrer")]
-        public string Referrer{ get; set; }
-        [JsonProperty("reference")]
-        public string Reference { get; set; }
-        [JsonProperty("user_agent")]
-        public string UserAgent { get; set; }
 
-        [JsonProperty("company")]
-        public bool Company { get; set; }
-        [JsonProperty("company_name")]
-        public string CompanyName { get; set; }
+        [JsonProperty("javascript_enabled")]
+        public bool JavascriptEnabled { get; set; }
 
-        [JsonProperty("first_name")]
-        public string FirstName { get; set; }
+        [JsonProperty("java_enabled")]
+        public bool JavaEnabled{ get; set; }
+
+        [JsonProperty("cookies_enabled")]
+        public string CookiesEnabled { get; set; }
+
+        [JsonProperty("language")]
+        public string Language { get; set; }
+
+        [JsonProperty("accept_header")]
+        public bool AcceptHeader { get; set; }
+
+        [JsonProperty("screen_color_depth")]
+        public string ScreenColorName { get; set; }
+
+        [JsonProperty("screen_height")]
+        public string ScreenHeight { get; set; }
+
         [JsonProperty("last_name")]
         public string LastName { get; set; }
         [JsonProperty("address1")]
@@ -44,10 +49,8 @@ namespace MultiSafepay.Model
         public string Phone { get; set; }
         [JsonProperty("email")]
         public string Email { get; set; }
-
         [JsonProperty("disable_send_email")]
         public bool DisableSendEmail { get; set; }
-
         [JsonProperty("browser")]
         public CustomerBrowser Browser { get; set; }
     }

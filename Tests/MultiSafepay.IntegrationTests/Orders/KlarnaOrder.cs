@@ -67,7 +67,7 @@ namespace MultiSafepay.IntegrationTests.Orders
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(orderRequest.OrderId, result.OrderId);
-            Assert.IsTrue(result.PaymentUrl.StartsWith("http://example.com/success?transactionid=")); // redirect to success URL
+            Assert.IsTrue(result.PaymentUrl.Contains("klarna.com/")); // redirect to payment URL
 
         }
     }

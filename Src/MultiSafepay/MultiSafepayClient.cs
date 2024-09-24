@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Net;
-using System.Security.Cryptography;
 using MultiSafepay.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -18,14 +16,19 @@ namespace MultiSafepay
     {
         private readonly WebClient _client;
         private readonly UrlProvider _urlProvider;
+        private bool _DEBUG = false;
         private bool _disposed;
         public string Language { get; set; }
 
-        public MultiSafepayClient(string apiKey, string apiUrl = "https://api.multisafepay.com/v1/json/", string languageCode = null)
+        public MultiSafepayClient(
+            string apiKey, 
+            string apiUrl = "https://api.multisafepay.com/v1/json/", 
+            string languageCode = null,
+            bool debug = false)
         {
-            //DNTMINT-17 - Target 4.0 - Support Tls 1.0, 1.1, 1.2 FIX
+            _DEBUG = debug;
+
             ServicePointManager.SecurityProtocol = (SecurityProtocolType)192 | (SecurityProtocolType)768 | (SecurityProtocolType)3072;
-            
             _client = new WebClient();
             _client.Headers["api_key"] = apiKey;
             _client.Headers[HttpRequestHeader.ContentType] = "application/json";
@@ -43,6 +46,32 @@ namespace MultiSafepay
         }
 
         #region API Methods
+
+        /// <summary>
+        /// Gets a list of all payment methods configured for the users account with extended information.
+        /// </summary>
+        public PaymentMethod[] GetPaymentMethods(
+            string countryCode = null,
+            string currency = null,
+            int? amount = null,
+            int? includeCoupons = null,
+            int? groupCards = null,
+            string application = null
+            )
+        {
+            var response = DoRequest<PaymentMethod[]>(_urlProvider.PaymentMethodsUrl(countryCode, currency, amount, includeCoupons, groupCards, application));
+            return response.Data;
+        }
+
+        /// <summary>
+        /// Gets data for a specific payment method with extended information.
+        /// </summary>
+        /// <param name="methodId">The unique identifier for the payment method</param>
+        public PaymentMethod GetPaymentMethod(string methodId)
+        {
+            var response = DoRequest<PaymentMethod>(_urlProvider.PaymentMethodUrl(methodId));
+            return response.Data;
+        }
 
         /// <summary>
         /// Gets a list of all payment methods configured for the users account
@@ -254,11 +283,16 @@ namespace MultiSafepay
         {
             try
             {
-                Trace.WriteLine(String.Empty);
-                Trace.WriteLine("GET - " + url);
+                if (_DEBUG)
+                {
+                    Trace.WriteLine(String.Empty);
+                    Trace.WriteLine("GET - " + url);
+                }
                 var response = _client.DownloadString(url);
-                Trace.WriteLine(response);
-
+                if (_DEBUG)
+                {
+                    Trace.WriteLine(response);
+                }
                 return DeserializeResult<T>(response);
             }
             catch (WebException ex)
@@ -269,8 +303,10 @@ namespace MultiSafepay
                 var response = ex.Response as HttpWebResponse;
                 var reader = new StreamReader(ex.Response.GetResponseStream());
                 var responseContents = reader.ReadToEnd();
-                Trace.WriteLine(responseContents);
-
+                if (_DEBUG)
+                {
+                    Trace.WriteLine(responseContents);
+                }
                 // If a resource was not found and resulted in a 404 return null
                 if (response != null && response.StatusCode == HttpStatusCode.NotFound)
                 {
@@ -294,12 +330,19 @@ namespace MultiSafepay
                 // When serializing the request object ignore default values to reduce message size
                 string serializedRequest = JsonConvert.SerializeObject(data,
                     new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-                Trace.WriteLine(String.Empty);
-                Trace.WriteLine(httpMethod + "- " + url);
-                Trace.WriteLine(serializedRequest);
+
+                if (_DEBUG)
+                {
+                    Trace.WriteLine(String.Empty);
+                    Trace.WriteLine(httpMethod + "- " + url);
+                    Trace.WriteLine(serializedRequest);
+                }
 
                 var response = _client.UploadString(url, httpMethod, serializedRequest);
-                Trace.WriteLine(response);
+                if (_DEBUG)
+                {
+                    Trace.WriteLine(response);
+                }
                 return DeserializeResult<T>(response);
             }
             catch (WebException ex)
@@ -309,7 +352,11 @@ namespace MultiSafepay
                 {
                     var reader = new StreamReader(ex.Response.GetResponseStream());
                     var response = reader.ReadToEnd();
-                    Trace.WriteLine(response);
+                    if (_DEBUG)
+                    {
+                        Trace.WriteLine(response);
+                    }
+
                     ResponseMessage r = null;
                     try
                     {
