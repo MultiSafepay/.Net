@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <Version>0.10.0</Version>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.10.1</Version>
     <PackageId>MultiSafepay</PackageId>
     <Product>MultiSafepay Payments</Product>
     <Authors>Jorge Sariego</Authors>
@@ -11,14 +11,7 @@
     <Description>A .NET client for the MultiSafepay payments API. Provides support for all payment methods, Pay After Delivery and Fast Checkout.</Description>
     <PackageIcon>favicon.png</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>Upgrade .Net to latest
-
-Added Support for:
-payment-methods endpoint
-PaymentOptions settings
-Qr
-validate_cart
-Add debug option to client for Tracing information
+    <PackageReleaseNotes>Downgrade to netstandard2.0
 </PackageReleaseNotes>
     <Company>MultiSafepay</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
