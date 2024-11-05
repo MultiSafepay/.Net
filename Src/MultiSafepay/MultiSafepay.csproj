@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.10.1</Version>
+    <Version>0.10.2</Version>
     <PackageId>MultiSafepay</PackageId>
     <Product>MultiSafepay Payments</Product>
     <Authors>Jorge Sariego</Authors>
@@ -11,11 +11,15 @@
     <Description>A .NET client for the MultiSafepay payments API. Provides support for all payment methods, Pay After Delivery and Fast Checkout.</Description>
     <PackageIcon>favicon.png</PackageIcon>
     <PackageIconUrl />
-    <PackageReleaseNotes>Downgrade to netstandard2.0
+    <PackageReleaseNotes>Add Transactions List and By ID Endpoints
+Add terminal_id support
+Add other missing properties in payment_details
+Improvements to prepare for additional missing endpoints to be added
+
 </PackageReleaseNotes>
     <Company>MultiSafepay</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.10.0.0</AssemblyVersion>
+    <AssemblyVersion>0.10.0.2</AssemblyVersion>
     <Title>.NET client for the MultiSafepay payments API</Title>
     <OutputType>Library</OutputType>
     <PackageReadmeFile>README.md</PackageReadmeFile>

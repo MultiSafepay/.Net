@@ -10,19 +10,21 @@ namespace MultiSafepay
     public class MultiSafepayException : Exception
     {
         public int ErrorCode { get; private set; }
-        public string ErrorInfo { get; private set; }
-        public Exception BaseException { get; private set; }
+        public string ErrorInfo
+        {
+            get; private set;
+        }
+        public readonly Exception BaseException;
 
         public MultiSafepayException()
-        : base() { }
+            : base() { }
 
         public MultiSafepayException(string format, params object[] args)
-        : base(string.Format(format, args)) { }
+            : base(string.Format(format, args)) { }
 
         public MultiSafepayException(int errorCode, string errorInfo, Exception baseException)
-            : this (errorCode, errorInfo)
+            : this(errorCode, errorInfo)
         {
-            
             BaseException = baseException;
         }
 
@@ -30,6 +32,12 @@ namespace MultiSafepay
         {
             ErrorCode = errorCode;
             ErrorInfo = errorInfo;
+
+        }
+
+        public override string ToString()
+        {
+            return $"MultiSafepayException: {Message} (Error Code: {ErrorCode}, Error Info: {ErrorInfo})";
         }
     }
 }

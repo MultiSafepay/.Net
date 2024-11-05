@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
+using MultiSafepay.Model;
+using MultiSafepay.Model.Transactions;
 
 namespace MultiSafepay
 {
@@ -29,6 +32,37 @@ namespace MultiSafepay
             : this(baseUrl)
         {
             _langaugeCode = languageCode;
+        }
+
+        public string TransactionsUrl(TransactionsFilter param)
+        {
+            var queryStringComponents = new Dictionary<string, string>()
+              {
+                { "limit", param.Limit.HasValue ? WebUtility.UrlEncode(param.Limit.ToString()) : null },
+                { "after", param.After != null ? WebUtility.UrlEncode(param.After.ToString()) : null },
+                { "before", param.Before != null ? WebUtility.UrlEncode(param.Before.ToString()) : null },
+
+                { "site_id", param.SideId.HasValue ? WebUtility.UrlEncode(param.SideId.ToString()) : null },
+                { "completed_from", (param.CompletedFrom != null && param.CompletedFrom != DateTime.MinValue) ? WebUtility.UrlEncode(param.CompletedFrom.ToString("yyyy-MM-ddTHH:mm:ss")) : null },
+                { "completed_until", (param.CompletedUntil != null && param.CompletedUntil != DateTime.MinValue) ? WebUtility.UrlEncode(param.CompletedUntil.ToString("yyyy-MM-ddTHH:mm:ss")) : null },
+                { "created_from", (param.CreatedFrom != null && param.CreatedFrom != DateTime.MinValue) ? WebUtility.UrlEncode(param.CreatedFrom.ToString("yyyy-MM-ddTHH:mm:ss")) : null },
+                { "created_until", (param.CreatedUntil != null && param.CreatedUntil != DateTime.MinValue) ? WebUtility.UrlEncode(param.CreatedUntil.ToString("yyyy-MM-ddTHH:mm:ss")) : null },
+                { "debit_credit", param.DebitCredit != null ? WebUtility.UrlEncode(param.DebitCredit.ToString()) : null },
+
+                { "financial_status", (param.FinancialStatus != null && param.FinancialStatus.Count > 0) ? WebUtility.UrlEncode(String.Join(",", param.FinancialStatus)) : null },
+                { "status", (param.Status != null && param.Status.Count > 0) ? WebUtility.UrlEncode(String.Join(",", param.Status)) : null },
+                { "type", (param.Type != null && param.Type.Count > 0) ? WebUtility.UrlEncode(String.Join(",", param.Type)) : null },
+              }
+            .Where(x => !String.IsNullOrEmpty(x.Value));
+
+            var queryString = String.Join("&", queryStringComponents.Select(x => String.Format("{0}={1}", x.Key, x.Value)));
+
+            if (!String.IsNullOrEmpty(queryString))
+            {
+                return FormatLanguage(_baseUrl + "transactions?" + queryString, _langaugeCode);
+            }
+
+            return FormatLanguage(_baseUrl + "transactions", _langaugeCode);
         }
 
         public string PaymentMethodsUrl(

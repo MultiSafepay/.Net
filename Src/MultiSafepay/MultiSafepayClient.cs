@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using MultiSafepay.Model;
+using MultiSafepay.Model.Transactions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -46,6 +47,34 @@ namespace MultiSafepay
         }
 
         #region API Methods
+        /// <summary>
+        /// Retrieves details about a particular order
+        /// </summary>
+        /// <param name="orderId">The client specified order id</param>
+        public Model.Transactions.Transaction GetTransaction(string transactionId)
+        {
+            var response = DoRequest<Model.Transactions.Transaction>(_urlProvider.TransactionUrl(transactionId));
+            return response == null ? null : response.Data;
+        }
+
+        /// <summary>
+        /// Gets a list of Transactions
+        /// </summary>
+        /// 
+        public TransactionsResponse GetTransactions(TransactionsFilter filter)
+        {
+            var response = DoRequest<Model.Transactions.Transaction[]>(_urlProvider.TransactionsUrl(filter));
+            return (
+                response != null ?
+                    new TransactionsResponse()
+                    {
+                        Success = response.Success,
+                        Data = response.Data,
+                        Pager = response.Pager
+                    } : 
+                    null
+            );
+        }
 
         /// <summary>
         /// Gets a list of all payment methods configured for the users account with extended information.
@@ -172,7 +201,6 @@ namespace MultiSafepay
         /// <returns>The MultiSafepay unique identifier for the refund transaction</returns>
         public RefundResult CreateRefund(string orderId, int refundAmountInCents, string currencyCode, string description)
         {
-
             var response = DoRequest<RefundResult>(_urlProvider.OrderRefundsUrl(orderId),
             new UpdateOrder()
             {
@@ -409,7 +437,13 @@ namespace MultiSafepay
                 var serializedResult = JsonConvert.DeserializeObject<ResponseMessage<T>>(response, dateTimeConverter);
                 if (serializedResult.Success == false)
                 {
-                    throw new MultiSafepayException(serializedResult.ErrorCode, serializedResult.ErrorInfo);
+                    var errorCode = (serializedResult.ErrorCode <= 0 ? 0 : serializedResult.ErrorCode);
+                    var errorInfo = (serializedResult.ErrorInfo != null ? serializedResult.ErrorInfo.ToString() : null);
+                    if (errorInfo != null && serializedResult.Message != null)
+                    {
+                        errorInfo = serializedResult.Message;
+                    }
+                    throw new MultiSafepayException(errorCode, errorInfo);
                 }
                 return serializedResult;
             }

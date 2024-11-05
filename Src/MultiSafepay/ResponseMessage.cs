@@ -9,8 +9,13 @@ namespace MultiSafepay
     {
         [JsonProperty("success")]
         public bool Success { get; set; }
+
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
         [JsonProperty("error_code")]
         public int ErrorCode { get; set; }
+
         [JsonProperty("error_info")]
         public string ErrorInfo { get; set; }
     }
@@ -23,5 +28,8 @@ namespace MultiSafepay
     {
         [JsonProperty("data")]
         public T Data { get; set; }
+
+        [JsonProperty("pager")]
+        public Model.Pager.Pager Pager { get; set; }
     }
 }

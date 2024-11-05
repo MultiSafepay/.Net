@@ -7,13 +7,20 @@ namespace MultiSafepay.Model
     {
         [JsonProperty("transaction_id")]
         public string TransactionId { get; set; }
+
         [JsonProperty("description")]
         public string Description { get; set; }
+
         [JsonProperty("type")]
         public string Type { get; set; }
+
         [JsonProperty("amount")]
         public double Amount { get; set; }
+
         [JsonProperty("created")]
         public DateTime? CreatedDate { get; set; }
+
+        [JsonProperty("dst")]
+        public int Dst { get; set; }
     }
 }
