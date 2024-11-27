@@ -25,7 +25,8 @@ namespace MultiSafepay
             string apiKey, 
             string apiUrl = "https://api.multisafepay.com/v1/json/", 
             string languageCode = null,
-            bool debug = false)
+            bool debug = false
+        )
         {
             _DEBUG = debug;
 
@@ -210,6 +211,52 @@ namespace MultiSafepay
                 Description = description
             });
 
+            return response.Data;
+        }
+
+        /// <summary>
+        /// Cacnel an order by a given orderId
+        /// </summary>
+        /// <param name="orderId">The client specified unique order id to update</param>
+        /// 
+        public OrderResponse OrderCancel(string orderId)
+        {
+            var response = DoRequest<OrderResponse>(_urlProvider.OrderCancelUrl(orderId),
+                null,
+                "POST"
+            );
+            return response.Data;
+        }
+
+        /// <summary>
+        /// Updates an order by a given orderId
+        /// </summary>
+        /// <param name="orderId">The client specified unique order id to update</param>
+        /// <param name="UpdateOrder">UpdateOrder Supported values</param>
+        /// 
+        public OrderUpdateResult OrderUpdate(string orderId, UpdateOrder updateOrder)
+        {
+            var response = DoRequest<OrderUpdateResult>(_urlProvider.OrderUrl(orderId),
+                updateOrder,
+                "PATCH"
+            );
+            return response.Data;
+        }
+
+        /// <summary>
+        /// Issues a refund for a particular refund in order
+        /// </summary>
+        /// <param name="orderId">The client specified unique order id to update</param>
+        /// <param name="refundId">The refundId</param>
+        /// <param name="status">Status</param>
+        /// <param name="description">A description for the refund transaction</param>
+        /// <returns>The MultiSafepay unique identifier for the refund transaction</returns>
+        public RefundResult UpdateRefund(string orderId, string refundId, UpdateOrder updateOrder)
+        {
+            var response = DoRequest<RefundResult>(_urlProvider.OrderRefundsUpdateUrl(orderId, refundId), 
+                updateOrder, 
+                "PATCH"
+            );
             return response.Data;
         }
 

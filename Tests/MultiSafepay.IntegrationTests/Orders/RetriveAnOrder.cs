@@ -1,5 +1,7 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 
 namespace MultiSafepay.IntegrationTests.Orders
 {
@@ -73,6 +75,25 @@ namespace MultiSafepay.IntegrationTests.Orders
             Assert.IsNotNull(result);
             Assert.AreEqual(orderId, result.OrderId);
             Assert.IsNotNull(result.RelatedTransactions[0].Status);
+        }
+
+
+        [TestMethod]
+        public void Orders_RetrieveOrderPaymentDetailsValue()
+        {
+            // Arrange
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
+            var client = new MultiSafepayClient(apiKey, url, null, true);
+
+            // Act
+            const string orderId = "a2b9a099-67b0-4a99-938c-1fb430ab1a33";
+            var result = client.GetOrder(orderId);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(orderId, result.OrderId);
+            Assert.IsNotNull(result.PaymentDetails.AcquirerReferenceNumber);
         }
     }
 }

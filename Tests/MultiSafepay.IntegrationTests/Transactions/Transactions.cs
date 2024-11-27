@@ -2,6 +2,7 @@
 using System.Data;
 using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MultiSafepay.Model;
 
 namespace MultiSafepay.IntegrationTests.Transactions
 {
@@ -76,12 +77,59 @@ namespace MultiSafepay.IntegrationTests.Transactions
             var client = new MultiSafepayClient(apiKey, url);
 
             // Act
-            var result = client.CreateRefund("546dd9aeb49aa", 100, "EUR", "This is a refund");
+            var result = client.CreateRefund("order_459228", 100, "EUR", "This is a refund");
 
             // Assert
             Assert.IsNotNull(result);
             Assert.IsFalse(String.IsNullOrEmpty(result.TransactionId));
             Assert.IsFalse(String.IsNullOrEmpty(result.RefundId));
+        }
+
+        [TestMethod]
+        public void Transactions_UpdateARefund()
+        {
+            // Arrange
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
+            var client = new MultiSafepayClient(apiKey, url, null, true);
+
+            // Act
+            var result = client.UpdateRefund(
+                "order_459228", 
+                "1730989257101838", 
+                new UpdateOrder() {
+                    Status = Model.Transactions.StatusEnum.completed.ToString(),
+                    Description = "Refund update"
+                });
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsFalse(String.IsNullOrEmpty(result.TransactionId));
+            Assert.IsFalse(String.IsNullOrEmpty(result.RefundId));
+        }
+
+        [TestMethod]
+        public void Transactions_OrderUpdate()
+        {
+            // Arrange
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
+            var client = new MultiSafepayClient(apiKey, url, null, true);
+
+            // Act
+            var result = client.OrderUpdate(
+                "apitool_459228",
+                new UpdateOrder()
+                {
+                    Status = Model.Transactions.StatusEnum.@void.ToString(),
+                    //ExcludeOrder = false,
+                    //TrackingCode = "XXXXX",
+                    Memo = "Test update"
+                });
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Success);
         }
 
         [TestMethod]

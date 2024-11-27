@@ -9,5 +9,8 @@ namespace MultiSafepay.Model
 
         [JsonProperty("refund_id")]
         public string RefundId { get; set; }
+
+        [JsonProperty("payment_details")]
+        public PaymentDetails PaymentDetails { get; set; }
     }
 }

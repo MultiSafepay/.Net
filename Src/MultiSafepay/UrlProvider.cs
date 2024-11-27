@@ -137,6 +137,11 @@ namespace MultiSafepay
             return FormatLanguage(_baseUrl + "orders/" + orderId, _langaugeCode);
         }
 
+        public string OrderCancelUrl(string orderId)
+        {
+            return FormatLanguage(_baseUrl + "orders/" + orderId + "/cancel", _langaugeCode);
+        }
+
         public string TransactionUrl(string transactionId)
         {
             return FormatLanguage(_baseUrl + "transactions/" + transactionId, _langaugeCode);
@@ -150,6 +155,11 @@ namespace MultiSafepay
         public string OrdersUrl()
         {
             return FormatLanguage(_baseUrl + "orders", _langaugeCode);
+        }
+
+        public string OrderRefundsUpdateUrl(string orderId, string refundId)
+        {
+            return FormatLanguage(_baseUrl + "orders/" + orderId + "/refunds/" + refundId, _langaugeCode);
         }
 
         public string OrderRefundsUrl(string orderId)

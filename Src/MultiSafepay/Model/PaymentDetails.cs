@@ -22,6 +22,12 @@ namespace MultiSafepay.Model
         [JsonProperty("last4")]
         public string Last4Digits { get; set; }
 
+        [JsonProperty("issuer_bin")]
+        public string IssuerBin { get; set; }
+
+        [JsonProperty("issuer_country_code")]
+        public string IssuerCountryCode { get; set; }
+
         [JsonProperty("account_iban")]
         public string AccountIban { get; set; }
 
@@ -55,6 +61,9 @@ namespace MultiSafepay.Model
         [JsonProperty("card_funding")]
         public string CardFunding { get; set; }
 
+        [JsonProperty("card_program")]
+        public string CardProgram { get; set; }
+
         [JsonProperty("card_product")]
         public string CardProduct { get; set; }
 
@@ -79,8 +88,14 @@ namespace MultiSafepay.Model
         [JsonProperty("terminal_id")]
         public string TerminalId { get; set; }
 
+        [JsonProperty("application_id")]
+        public string ApplicationId { get; set; }
+
         [JsonProperty("mcc")]
         public string Mcc { get; set; }
+
+        [JsonProperty("response_code")]
+        public string ResponseCode { get; set; }
 
         [JsonProperty("recurring_flow")]
         public string RecurringFlow { get; set; }
@@ -90,5 +105,8 @@ namespace MultiSafepay.Model
 
         [JsonProperty("scheme_reference_id")]
         public string SchemeReferenceId { get; set; }
+
+        [JsonProperty("acquirer_reference_number")]
+        public string AcquirerReferenceNumber { get; set; }
     }
 }

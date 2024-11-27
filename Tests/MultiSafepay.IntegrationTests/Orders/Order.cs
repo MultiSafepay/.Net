@@ -53,5 +53,21 @@ namespace MultiSafepay.IntegrationTests.Orders
             // Assert
             Assert.IsTrue(result.Success);
         }
+
+        [TestMethod]
+        public void Order_SetOrderCancel()
+        {
+            // Arrange
+            var url = Settings.MultiSafePayUrl;
+            var apiKey = Settings.ApiKey;
+            var client = new MultiSafepayClient(apiKey, url, null, true);
+            var orderId = "4f5b7db0-189a-4767-9a80-2c2fac455743";
+            // Act
+            var result = client.OrderCancel(orderId);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(orderId, result.OrderId);
+        }
     }
 }

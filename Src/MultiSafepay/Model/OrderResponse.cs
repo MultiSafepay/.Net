@@ -72,6 +72,9 @@ namespace MultiSafepay.Model
         [JsonProperty("costs")]
         public IList<CostItems> Costs { get; set; }
 
+        [JsonProperty("payment_methods")]
+        public IList<PaymentMethodsItem> PaymentMethods { get; set; }
+
         [JsonProperty("related_transactions")]
         public IList<RelatedTransactionItems> RelatedTransactions { get; set; }
 
